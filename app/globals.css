@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Newsreader", ui-serif, Georgia, serif;
+  --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Calming, trustworthy medical palette — soft sage green, muted blue, warm neutrals */
+  --color-bg: #f6f4ef;
+  --color-surface: #ffffff;
+  --color-sand: #eae3d5;
+  --color-line: #dcd4c3;
+
+  --color-ink: #22302f;      /* primary text, deep teal-charcoal (AA/AAA on bg) */
+  --color-ink-soft: #4b5a58; /* secondary text */
+
+  --color-sage: #6e8f73;       /* brand accent */
+  --color-sage-dark: #3d5b43;  /* buttons / links, AA contrast on white */
+  --color-sage-light: #e3ebe1; /* tints / icon chips */
+
+  --color-blue: #6c8ca3;       /* secondary accent */
+  --color-blue-dark: #3d5566;  /* AA contrast on white */
+  --color-blue-light: #e4edf1; /* tints / icon chips */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* Buttons: solid, rectangular, no opacity-fade or scale on hover —
+   just a small, deliberate color shift. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.btn-lg {
+  padding: 0.9rem 1.75rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--color-sage-dark);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #33492f;
+}
+
+.btn-on-dark {
+  background-color: #ffffff;
+  color: var(--color-sage-dark);
+}
+
+.btn-on-dark:hover {
+  background-color: var(--color-sage-light);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-line);
+  color: var(--color-ink);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-ink-soft);
+}
+
+/* Visible keyboard focus everywhere, per WCAG */
+:focus-visible {
+  outline: 2px solid var(--color-sage-dark);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
