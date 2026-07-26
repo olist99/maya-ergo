@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { User } from "lucide-react";
+import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Om mig - Klar Hverdag Ergoterapi",
@@ -14,7 +15,7 @@ const credentials = [
   },
   {
     title: "Autorisation",
-    text: "Autoriseret af Sundhedsstyrelsen. Autorisations-ID stilles gerne til rådighed ved forespørgsel.",
+    text: `Autoriseret af Sundhedsstyrelsen, autorisations-ID ${business.autorisationsId}.`,
   },
   {
     title: "Efteruddannelse",
@@ -33,7 +34,7 @@ export default function AboutPage() {
               <span className="text-xs">Portrætfoto</span>
             </div>
           </div>
-          <p className="mt-3 text-center text-sm font-medium text-[var(--color-ink)]">Maya Pedersen</p>
+          <p className="mt-3 text-center text-sm font-medium text-[var(--color-ink)]">{business.name}</p>
           <p className="text-center text-xs text-[var(--color-ink-soft)]">Autoriseret ergoterapeut</p>
         </div>
 
@@ -41,8 +42,8 @@ export default function AboutPage() {
           <h1 className="font-display text-4xl font-semibold text-[var(--color-ink)]">Om mig</h1>
           <div className="mt-6 space-y-4 text-[var(--color-ink-soft)]">
             <p>
-              Jeg hedder Maya Pedersen og er autoriseret ergoterapeut med
-              base i Næstved. I over 12 år har jeg arbejdet med borgere i
+              Jeg hedder {business.name} og er autoriseret ergoterapeut med
+              base i {business.city}. I over 12 år har jeg arbejdet med borgere i
               alle aldre, fra unge med arbejdsrelaterede skader til ældre,
               der ønsker at blive boende trygt i eget hjem.
             </p>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import CalInlineBooking from "@/components/CalInlineBooking";
+import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Kontakt - Klar Hverdag Ergoterapi",
@@ -10,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 const details = [
-  { icon: Phone, label: "Telefon", value: "12 34 56 78", href: "tel:+4512345678" },
-  { icon: Mail, label: "Email", value: "kontakt@ergoterapi.dk", href: "mailto:kontakt@ergoterapi.dk" },
-  { icon: MapPin, label: "Adresse", value: "ADRESSE HER" },
-  { icon: Clock, label: "Åbningstider", value: "Mandag–fredag, kl. 8–16" },
+  { icon: Phone, label: "Telefon", value: business.phone, href: business.phoneHref },
+  { icon: Mail, label: "Email", value: business.email, href: `mailto:${business.email}` },
+  { icon: MapPin, label: "Adresse", value: `${business.address}, ${business.postalCode} ${business.city}` },
+  { icon: Clock, label: "Åbningstider", value: business.openingHours },
 ];
 
 export default function ContactPage() {
@@ -68,6 +69,16 @@ export default function ContactPage() {
             Kører du med kørestol eller rollator? Klinikken og adgangsvejen
             er indrettet, så det er nemt at komme til. Sig endelig til, hvis
             du har særlige behov.
+          </div>
+
+          <div className="card mt-6 overflow-hidden">
+            <iframe
+              title="Kort over klinikkens placering"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(`${business.address}, ${business.postalCode} ${business.city}`)}&output=embed`}
+              className="h-56 w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </aside>
       </div>

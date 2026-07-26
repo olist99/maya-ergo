@@ -50,7 +50,7 @@ export default function ServicesPage() {
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {services.map(({ image, title, text, points }) => (
           <article key={title} className="card flex flex-col overflow-hidden">
-            <div className="bg-[var(--color-sand)] p-8">
+            <div className="bg-[var(--color-mint)] p-8">
               <Image src={image} alt="" width={320} height={220} className="mx-auto h-40 w-auto" />
             </div>
             <div className="flex flex-1 flex-col p-7">

@@ -19,7 +19,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[var(--color-bg)]">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[var(--color-surface)]">
       <nav
         aria-label="Hovednavigation"
         className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10"
@@ -66,7 +66,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-[var(--color-line)] bg-[var(--color-bg)] md:hidden">
+        <div id="mobile-menu" className="border-t border-[var(--color-line)] bg-[var(--color-surface)] md:hidden">
           <ul className="flex flex-col gap-1 px-6 py-4">
             {links.map((link) => {
               const active = pathname === link.href;

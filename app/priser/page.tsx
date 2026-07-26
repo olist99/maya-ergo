@@ -46,7 +46,7 @@ export default function PricingPage() {
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {plans.map(({ title, duration, price, text, points }) => (
           <article key={title} className="card flex flex-col p-7">
-            <p className="text-sm font-medium text-[var(--color-sage-dark)]">{duration}</p>
+            <p className="text-sm font-medium text-[var(--color-blue-dark)]">{duration}</p>
             <h2 className="mt-1 font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h2>
             <p className="mt-3 font-display text-3xl font-semibold text-[var(--color-ink)]">{price}</p>
             <p className="mt-3 text-sm text-[var(--color-ink-soft)]">{text}</p>

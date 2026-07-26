@@ -1,19 +1,43 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError(null);
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Beskeden kunne ikke sendes.");
+      }
+
       setSubmitted(true);
-    }, 700);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Beskeden kunne ikke sendes.");
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
@@ -33,6 +57,13 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      {error && (
+        <div role="alert" className="flex items-start gap-2.5 rounded-lg border border-[var(--color-line)] bg-red-50 p-4 text-sm text-red-800">
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{error}</span>
+        </div>
+      )}
+
       <div>
         <label htmlFor="name" className="field-label">
           Navn
@@ -43,6 +74,7 @@ export default function ContactForm() {
           type="text"
           autoComplete="name"
           required
+          minLength={2}
           className="field"
           placeholder="Dit fulde navn"
         />
@@ -72,6 +104,7 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
+          minLength={5}
           className="field field-textarea"
           placeholder="Fortæl kort, hvad du gerne vil have hjælp til…"
         />

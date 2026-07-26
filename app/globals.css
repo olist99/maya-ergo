@@ -4,21 +4,29 @@
   --font-display: "Newsreader", ui-serif, Georgia, serif;
   --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --color-bg: #f6f4ef;
+  --radius: 0.4rem;
+  --radius-sm: 0.4rem;
+  --radius-md: 0.4rem;
+  --radius-lg: 0.4rem;
+  --radius-xl: 0.4rem;
+  --radius-2xl: 0.4rem;
+  --radius-3xl: 0.4rem;
+
+  --color-bg: #f2f6f5;
   --color-surface: #ffffff;
-  --color-sand: #eae3d5;
-  --color-line: #dcd4c3;
+  --color-mint: #ddf1e8;
+  --color-line: #dde6e3;
 
   --color-ink: #22302f;
   --color-ink-soft: #4b5a58;
 
-  --color-sage: #6e8f73;
-  --color-sage-dark: #3d5b43;
-  --color-sage-light: #e3ebe1;
+  --color-sage: #6fcba0;
+  --color-sage-dark: #1f6b4a;
+  --color-sage-light: #e3f7ee;
 
-  --color-blue: #6c8ca3;
-  --color-blue-dark: #3d5566;
-  --color-blue-light: #e4edf1;
+  --color-blue: #74b9de;
+  --color-blue-dark: #245c7d;
+  --color-blue-light: #e1f1f9;
 }
 
 html {
@@ -40,7 +48,7 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 6px;
+  border-radius: var(--radius);
   padding: 0.75rem 1.5rem;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -58,7 +66,7 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary:hover {
-  background-color: #33492f;
+  background-color: #17573b;
 }
 
 .btn-on-dark {
@@ -81,14 +89,14 @@ h1, h2, h3, h4 {
 }
 
 .card {
-  border-radius: 12px;
+  border-radius: var(--radius);
   border: 1px solid var(--color-line);
   background-color: var(--color-surface);
 }
 
 .tint-panel {
-  border-radius: 12px;
-  background-color: var(--color-sand);
+  border-radius: var(--radius);
+  background-color: var(--color-mint);
 }
 
 .nav-link {
@@ -108,7 +116,7 @@ h1, h2, h3, h4 {
 
 .mobile-nav-link {
   display: block;
-  border-radius: 6px;
+  border-radius: var(--radius);
   padding: 0.625rem 0.75rem;
   font-size: 1rem;
   font-weight: 500;
@@ -130,7 +138,7 @@ h1, h2, h3, h4 {
 
 .field {
   width: 100%;
-  border-radius: 8px;
+  border-radius: var(--radius);
   border: 1px solid var(--color-line);
   background-color: var(--color-surface);
   padding: 0.625rem 1rem;
@@ -159,7 +167,7 @@ h1, h2, h3, h4 {
 :focus-visible {
   outline: 2px solid var(--color-sage-dark);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { business } from "@/lib/business";
+import TrustpilotWidget from "@/components/TrustpilotWidget";
 
 export default function Footer() {
   return (
@@ -13,6 +15,26 @@ export default function Footer() {
             Autoriseret ergoterapeut med fokus på selvstændighed, tryghed og
             en hverdag der fungerer i dit eget hjem.
           </p>
+          <div className="mt-4 flex gap-4">
+            <a
+              href={business.social.facebook}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Ergoterapi på Facebook"
+              className="text-[var(--color-ink-soft)] hover:text-[var(--color-sage-dark)]"
+            >
+              <Facebook className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a
+              href={business.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Ergoterapi på Instagram"
+              className="text-[var(--color-ink-soft)] hover:text-[var(--color-sage-dark)]"
+            >
+              <Instagram className="h-5 w-5" aria-hidden="true" />
+            </a>
+          </div>
         </div>
 
         <div>
@@ -22,6 +44,7 @@ export default function Footer() {
             <li><Link className="hover:text-[var(--color-sage-dark)]" href="/priser">Priser</Link></li>
             <li><Link className="hover:text-[var(--color-sage-dark)]" href="/about">Om mig</Link></li>
             <li><Link className="hover:text-[var(--color-sage-dark)]" href="/contact">Kontakt</Link></li>
+            <li><Link className="hover:text-[var(--color-sage-dark)]" href="/privatlivspolitik">Privatlivspolitik</Link></li>
           </ul>
         </div>
 
@@ -30,21 +53,28 @@ export default function Footer() {
           <ul className="mt-3 space-y-2.5 text-sm text-[var(--color-ink-soft)]">
             <li className="flex items-center gap-2">
               <Phone className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
-              <a className="hover:text-[var(--color-sage-dark)]" href="tel:+4512345678">12 34 56 78</a>
+              <a className="hover:text-[var(--color-sage-dark)]" href={business.phoneHref}>{business.phone}</a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
-              <a className="hover:text-[var(--color-sage-dark)]" href="mailto:kontakt@ergoterapi.dk">kontakt@ergoterapi.dk</a>
+              <a className="hover:text-[var(--color-sage-dark)]" href={`mailto:${business.email}`}>{business.email}</a>
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
-              <span>ADRESSE HER</span>
+              <span>{business.address}, {business.postalCode} {business.city}</span>
             </li>
           </ul>
         </div>
       </div>
+
+      <div className="border-t border-[var(--color-line)] px-6 py-8 md:px-10">
+        <div className="mx-auto max-w-6xl">
+          <TrustpilotWidget />
+        </div>
+      </div>
+
       <div className="border-t border-[var(--color-line)] py-5 text-center text-xs text-[var(--color-ink-soft)]">
-        © {new Date().getFullYear()} Ergoterapi · CVR 12345678
+        © {new Date().getFullYear()} {business.practiceName} · CVR {business.cvr}
       </div>
     </footer>
   );

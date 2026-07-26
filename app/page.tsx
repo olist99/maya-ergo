@@ -27,13 +27,35 @@ const trust = [
   "Evidensbaseret behandling",
 ];
 
+const faq = [
+  {
+    question: "Skal jeg have en lægehenvisning?",
+    answer: "Nej, du kan booke en tid hos mig direkte uden henvisning fra din læge.",
+  },
+  {
+    question: "Dækker min sundhedsforsikring behandlingen?",
+    answer:
+      "Mange private sundhedsforsikringer dækker hele eller dele af behandlingen. Kontakt dit forsikringsselskab for at høre, om ergoterapi er omfattet, før din tid.",
+  },
+  {
+    question: "Kommer du ud i hjemmet?",
+    answer:
+      "Ja, hjemmebesøg er en af mine kerneydelser. Jeg dækker Næstved og det meste af det omkringliggende område.",
+  },
+  {
+    question: "Hvor langt varer et forløb?",
+    answer:
+      "Det afhænger helt af din situation. Nogle har brug for en enkelt konsultation, andre et længere forløb med løbende opfølgning. Vi lægger altid en plan sammen efter den indledende samtale.",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24">
           <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[var(--color-sage-dark)]">
+            <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[var(--color-blue-dark)]">
               Autoriseret ergoterapeut · Næstved
             </p>
             <h1 className="font-display text-4xl font-semibold leading-[1.1] text-[var(--color-ink)] sm:text-5xl">
@@ -116,6 +138,34 @@ export default function HomePage() {
             Se alle ydelser
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 py-20 md:px-10">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faq.map(({ question, answer }) => ({
+                "@type": "Question",
+                name: question,
+                acceptedAnswer: { "@type": "Answer", text: answer },
+              })),
+            }),
+          }}
+        />
+        <h2 className="text-center font-display text-3xl font-semibold text-[var(--color-ink)]">
+          Ofte stillede spørgsmål
+        </h2>
+        <div className="mt-10 space-y-6">
+          {faq.map(({ question, answer }) => (
+            <div key={question} className="card p-6">
+              <h3 className="font-display text-lg font-semibold text-[var(--color-ink)]">{question}</h3>
+              <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{answer}</p>
+            </div>
+          ))}
         </div>
       </section>
 
