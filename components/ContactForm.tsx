@@ -10,8 +10,6 @@ export default function ContactForm() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
-    // Placeholder submit behaviour, wire up to an API route or form
-    // service (e.g. Resend, Formspree) before going live.
     setTimeout(() => {
       setSending(false);
       setSubmitted(true);
@@ -36,7 +34,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[var(--color-ink)]">
+        <label htmlFor="name" className="field-label">
           Navn
         </label>
         <input
@@ -45,13 +43,13 @@ export default function ContactForm() {
           type="text"
           autoComplete="name"
           required
-          className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2.5 text-[var(--color-ink)] placeholder:text-[var(--color-ink-soft)]/60 focus:border-[var(--color-sage-dark)]"
+          className="field"
           placeholder="Dit fulde navn"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-[var(--color-ink)]">
+        <label htmlFor="email" className="field-label">
           Email
         </label>
         <input
@@ -60,13 +58,13 @@ export default function ContactForm() {
           type="email"
           autoComplete="email"
           required
-          className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2.5 text-[var(--color-ink)] placeholder:text-[var(--color-ink-soft)]/60 focus:border-[var(--color-sage-dark)]"
+          className="field"
           placeholder="dig@eksempel.dk"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-[var(--color-ink)]">
+        <label htmlFor="message" className="field-label">
           Besked
         </label>
         <textarea
@@ -74,7 +72,7 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full resize-y rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2.5 text-[var(--color-ink)] placeholder:text-[var(--color-ink-soft)]/60 focus:border-[var(--color-sage-dark)]"
+          className="field field-textarea"
           placeholder="Fortæl kort, hvad du gerne vil have hjælp til…"
         />
       </div>

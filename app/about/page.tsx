@@ -3,14 +3,14 @@ import Image from "next/image";
 import { User } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Om mig — Klar Hverdag Ergoterapi",
+  title: "Om mig - Klar Hverdag Ergoterapi",
   description: "Autoriseret ergoterapeut med over 12 års erfaring i borgernær ergoterapi.",
 };
 
 const credentials = [
   {
     title: "Uddannelse",
-    text: "Professionsbachelor i ergoterapi, Københavns Professionshøjskole, 2012.",
+    text: "Professionsbachelor i ergoterapi, Professionshøjskolen Absalon, Campus Næstved, 2012.",
   },
   {
     title: "Autorisation",
@@ -26,33 +26,31 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
       <div className="grid gap-12 md:grid-cols-[280px_1fr] md:gap-16">
-        {/* Headshot placeholder */}
         <div className="mx-auto w-full max-w-[280px] md:mx-0">
-          <div className="flex aspect-[4/5] w-full items-center justify-center rounded-lg border border-[var(--color-line)] bg-[var(--color-sand)]">
+          <div className="tint-panel flex aspect-[4/5] w-full items-center justify-center border border-[var(--color-line)]">
             <div className="flex flex-col items-center gap-2 text-[var(--color-ink-soft)]">
               <User className="h-14 w-14" strokeWidth={1.5} aria-hidden="true" />
               <span className="text-xs">Portrætfoto</span>
             </div>
           </div>
-          <p className="mt-3 text-center text-sm font-medium text-[var(--color-ink)]">Mette Lindgaard</p>
+          <p className="mt-3 text-center text-sm font-medium text-[var(--color-ink)]">Maya Pedersen</p>
           <p className="text-center text-xs text-[var(--color-ink-soft)]">Autoriseret ergoterapeut</p>
         </div>
 
-        {/* Bio */}
         <div>
           <h1 className="font-display text-4xl font-semibold text-[var(--color-ink)]">Om mig</h1>
           <div className="mt-6 space-y-4 text-[var(--color-ink-soft)]">
             <p>
-              Jeg hedder Mette Lindgaard og er autoriseret ergoterapeut med
-              base i København. I over 12 år har jeg arbejdet med borgere i
-              alle aldre — fra unge med arbejdsrelaterede skader til ældre,
+              Jeg hedder Maya Pedersen og er autoriseret ergoterapeut med
+              base i Næstved. I over 12 år har jeg arbejdet med borgere i
+              alle aldre, fra unge med arbejdsrelaterede skader til ældre,
               der ønsker at blive boende trygt i eget hjem.
             </p>
             <p>
               Efter flere år i kommunalt regi valgte jeg at blive
               selvstændig, fordi jeg ønskede bedre tid til den enkelte. Hos
               mig får du et forløb, der tager udgangspunkt i din hverdag, dine
-              vaner og dine egne mål — ikke en standardløsning.
+              vaner og dine egne mål, ikke en standardløsning.
             </p>
             <p>
               Jeg lægger vægt på en ligeværdig dialog, faglig grundighed og

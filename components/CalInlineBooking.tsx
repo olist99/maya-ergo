@@ -8,7 +8,7 @@ export default function CalInlineBooking() {
     <Cal
       namespace={CAL_NAMESPACE}
       calLink={CAL_LINK}
-      style={{ width: "100%", height: "100%", minHeight: "700px" }}
+      className="cal-embed"
       config={{ layout: "month_view", theme: "light" }}
     />
   );

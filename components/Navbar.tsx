@@ -9,6 +9,7 @@ import BookingButton from "@/components/BookingButton";
 const links = [
   { href: "/", label: "Hjem" },
   { href: "/services", label: "Ydelser" },
+  { href: "/priser", label: "Priser" },
   { href: "/about", label: "Om mig" },
   { href: "/contact", label: "Kontakt" },
 ];
@@ -31,7 +32,6 @@ export default function Navbar() {
           <span className="text-[var(--color-sage-dark)]">Ergoterapi</span>
         </Link>
 
-        {/* Desktop links */}
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => {
             const active = pathname === link.href;
@@ -40,9 +40,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`text-[15px] font-medium transition-colors hover:text-[var(--color-sage-dark)] ${
-                    active ? "text-[var(--color-sage-dark)]" : "text-[var(--color-ink-soft)]"
-                  }`}
+                  className={active ? "nav-link nav-link-active" : "nav-link"}
                 >
                   {link.label}
                 </Link>
@@ -55,7 +53,6 @@ export default function Navbar() {
           Book en konsultation
         </BookingButton>
 
-        {/* Mobile toggle */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -68,7 +65,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {open && (
         <div id="mobile-menu" className="border-t border-[var(--color-line)] bg-[var(--color-bg)] md:hidden">
           <ul className="flex flex-col gap-1 px-6 py-4">
@@ -80,11 +76,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setOpen(false)}
                     aria-current={active ? "page" : undefined}
-                    className={`block rounded-md px-3 py-2.5 text-base font-medium ${
-                      active
-                        ? "bg-[var(--color-sage-light)] text-[var(--color-sage-dark)]"
-                        : "text-[var(--color-ink-soft)]"
-                    }`}
+                    className={active ? "mobile-nav-link mobile-nav-link-active" : "mobile-nav-link"}
                   >
                     {link.label}
                   </Link>
@@ -92,10 +84,7 @@ export default function Navbar() {
               );
             })}
             <li className="pt-2">
-              <BookingButton
-                onClick={() => setOpen(false)}
-                className="btn btn-primary w-full"
-              >
+              <BookingButton onClick={() => setOpen(false)} className="btn btn-primary w-full">
                 Book en konsultation
               </BookingButton>
             </li>

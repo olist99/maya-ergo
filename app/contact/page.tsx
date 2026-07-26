@@ -5,14 +5,14 @@ import ContactForm from "@/components/ContactForm";
 import CalInlineBooking from "@/components/CalInlineBooking";
 
 export const metadata: Metadata = {
-  title: "Kontakt — Klar Hverdag Ergoterapi",
-  description: "Book en konsultation eller send en besked — jeg vender tilbage hurtigst muligt.",
+  title: "Kontakt - Klar Hverdag Ergoterapi",
+  description: "Book en konsultation eller send en besked, så vender jeg tilbage hurtigst muligt.",
 };
 
 const details = [
   { icon: Phone, label: "Telefon", value: "12 34 56 78", href: "tel:+4512345678" },
-  { icon: Mail, label: "Email", value: "kontakt@klarhverdag.dk", href: "mailto:kontakt@klarhverdag.dk" },
-  { icon: MapPin, label: "Adresse", value: "Nørrebrogade 22, 2200 København N" },
+  { icon: Mail, label: "Email", value: "kontakt@ergoterapi.dk", href: "mailto:kontakt@ergoterapi.dk" },
+  { icon: MapPin, label: "Adresse", value: "ADRESSE HER" },
   { icon: Clock, label: "Åbningstider", value: "Mandag–fredag, kl. 8–16" },
 ];
 
@@ -23,8 +23,8 @@ export default function ContactPage() {
         <div className="max-w-2xl">
           <h1 className="font-display text-4xl font-semibold text-[var(--color-ink)]">Kontakt</h1>
           <p className="mt-4 text-lg text-[var(--color-ink-soft)]">
-            Book en tid direkte i kalenderen nedenfor, eller send en besked —
-            jeg vender tilbage hurtigst muligt.
+            Book en tid direkte i kalenderen nedenfor, eller send en besked,
+            så vender jeg tilbage hurtigst muligt.
           </p>
         </div>
         <Image
@@ -36,9 +36,8 @@ export default function ContactPage() {
         />
       </div>
 
-      {/* Booking calendar */}
       <div className="mt-12 grid gap-10 md:grid-cols-[1fr_320px] md:gap-16">
-        <div className="rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] p-2 sm:p-4">
+        <div className="card p-2 sm:p-4">
           <h2 className="px-4 pt-3 font-display text-lg font-semibold text-[var(--color-ink)] sm:px-2">
             Book en tid
           </h2>
@@ -65,15 +64,14 @@ export default function ContactPage() {
             ))}
           </ul>
 
-          <div className="mt-8 rounded-lg bg-[var(--color-sand)] p-5 text-sm text-[var(--color-ink-soft)]">
+          <div className="tint-panel mt-8 p-5 text-sm text-[var(--color-ink-soft)]">
             Kører du med kørestol eller rollator? Klinikken og adgangsvejen
-            er indrettet, så det er nemt at komme til — sig endelig til, hvis
+            er indrettet, så det er nemt at komme til. Sig endelig til, hvis
             du har særlige behov.
           </div>
         </aside>
       </div>
 
-      {/* Fallback message form */}
       <div className="mt-16 border-t border-[var(--color-line)] pt-12">
         <h2 className="font-display text-2xl font-semibold text-[var(--color-ink)]">
           Eller send en besked
@@ -82,7 +80,7 @@ export default function ContactPage() {
           Foretrækker du at skrive frem for at booke direkte? Brug formularen,
           så vender jeg tilbage.
         </p>
-        <div className="mt-6 max-w-xl rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] p-7 sm:p-9">
+        <div className="card mt-6 max-w-xl p-7 sm:p-9">
           <ContactForm />
         </div>
       </div>

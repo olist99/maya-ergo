@@ -30,7 +30,6 @@ const trust = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24">
           <div>
@@ -69,7 +68,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust bar */}
       <section className="border-y border-[var(--color-line)] bg-[var(--color-surface)]">
         <ul className="mx-auto flex max-w-6xl flex-col divide-y divide-[var(--color-line)] px-6 sm:flex-row sm:divide-x sm:divide-y-0 md:px-10">
           {trust.map((text) => (
@@ -80,7 +78,6 @@ export default function HomePage() {
         </ul>
       </section>
 
-      {/* Services teaser */}
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-10">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-semibold text-[var(--color-ink)]">
@@ -96,8 +93,14 @@ export default function HomePage() {
         <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {teaserServices.map(({ image, title, text }) => (
             <div key={title} className="flex flex-col">
-              <div className="overflow-hidden rounded-lg bg-[var(--color-sand)] p-6">
-                <Image src={image} alt="" width={300} height={220} className="h-auto w-full" />
+              <div className="tint-panel h-48 overflow-hidden p-6">
+                <Image
+                  src={image}
+                  alt=""
+                  width={300}
+                  height={220}
+                  className="h-full w-full object-contain"
+                />
               </div>
               <h3 className="mt-5 font-display text-lg font-semibold text-[var(--color-ink)]">{title}</h3>
               <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{text}</p>
@@ -116,7 +119,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA band */}
       <section className="bg-[var(--color-sage-dark)]">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-16 text-center md:px-10">
           <h2 className="font-display text-3xl font-semibold text-white">

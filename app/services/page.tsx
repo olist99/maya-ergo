@@ -4,7 +4,7 @@ import { Check, ArrowRight } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
-  title: "Ydelser — Klar Hverdag Ergoterapi",
+  title: "Ydelser - Klar Hverdag Ergoterapi",
   description: "Hjemmebesøg, ergonomi, genoptræning og hjælpemidler tilpasset dine behov.",
 };
 
@@ -12,7 +12,7 @@ const services = [
   {
     image: "/illustrations/service-home-visit.svg",
     title: "Hjemmebesøg & boligindretning",
-    text: "Jeg kommer hjem til dig og vurderer, hvordan boligen understøtter din hverdag — og hvor der er plads til forbedring.",
+    text: "Jeg kommer hjem til dig og vurderer, hvordan boligen understøtter din hverdag, og hvor der er plads til forbedring.",
     points: ["Gennemgang af hele boligen", "Konkrete anbefalinger til indretning", "Skriftlig rapport efter besøget"],
   },
   {
@@ -24,7 +24,7 @@ const services = [
   {
     image: "/illustrations/service-rehab.svg",
     title: "Genoptræning",
-    text: "Individuelt tilrettelagte genoptræningsforløb efter sygdom, operation eller skade — med fokus på dine egne mål.",
+    text: "Individuelt tilrettelagte genoptræningsforløb efter sygdom, operation eller skade, med fokus på dine egne mål.",
     points: ["Funktionsvurdering", "Skræddersyet træningsplan", "Løbende opfølgning"],
   },
   {
@@ -49,10 +49,7 @@ export default function ServicesPage() {
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {services.map(({ image, title, text, points }) => (
-          <article
-            key={title}
-            className="flex flex-col overflow-hidden rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)]"
-          >
+          <article key={title} className="card flex flex-col overflow-hidden">
             <div className="bg-[var(--color-sand)] p-8">
               <Image src={image} alt="" width={320} height={220} className="mx-auto h-40 w-auto" />
             </div>
@@ -72,7 +69,7 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      <div className="mt-16 flex flex-col items-center gap-4 rounded-lg bg-[var(--color-sand)] px-8 py-10 text-center">
+      <div className="tint-panel mt-16 flex flex-col items-center gap-4 px-8 py-10 text-center">
         <h2 className="font-display text-2xl font-semibold text-[var(--color-ink)]">
           Er du i tvivl om, hvad du har brug for?
         </h2>

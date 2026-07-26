@@ -19,6 +19,7 @@ export default function Footer() {
           <p className="text-sm font-semibold text-[var(--color-ink)]">Genveje</p>
           <ul className="mt-3 space-y-2 text-sm text-[var(--color-ink-soft)]">
             <li><Link className="hover:text-[var(--color-sage-dark)]" href="/services">Ydelser</Link></li>
+            <li><Link className="hover:text-[var(--color-sage-dark)]" href="/priser">Priser</Link></li>
             <li><Link className="hover:text-[var(--color-sage-dark)]" href="/about">Om mig</Link></li>
             <li><Link className="hover:text-[var(--color-sage-dark)]" href="/contact">Kontakt</Link></li>
           </ul>
@@ -33,7 +34,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
-              <a className="hover:text-[var(--color-sage-dark)]" href="mailto:kontakt@klarhverdag.dk">kontakt@ergoterapi.dk</a>
+              <a className="hover:text-[var(--color-sage-dark)]" href="mailto:kontakt@ergoterapi.dk">kontakt@ergoterapi.dk</a>
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
