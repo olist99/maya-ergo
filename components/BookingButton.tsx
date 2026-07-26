@@ -9,11 +9,6 @@ type BookingButtonProps = {
   onClick?: () => void;
 };
 
-/**
- * Renders as a real <button>, but Cal.com's embed script (booted once via
- * CalProvider) intercepts clicks on elements carrying these data attributes
- * and opens the booking popup — no page navigation required.
- */
 export default function BookingButton({ children, className, onClick }: BookingButtonProps) {
   return (
     <button

@@ -10,7 +10,7 @@ export default function ContactForm() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
-    // Placeholder submit behaviour — wire up to an API route or form
+    // Placeholder submit behaviour, wire up to an API route or form
     // service (e.g. Resend, Formspree) before going live.
     setTimeout(() => {
       setSending(false);
@@ -27,7 +27,7 @@ export default function ContactForm() {
         <CheckCircle2 className="h-10 w-10 text-[var(--color-sage-dark)]" aria-hidden="true" />
         <p className="font-display text-xl font-semibold text-[var(--color-ink)]">Tak for din besked!</p>
         <p className="text-sm text-[var(--color-ink-soft)]">
-          Jeg vender tilbage til dig hurtigst muligt — normalt inden for 1-2 hverdage.
+          Jeg vender tilbage til dig hurtigst muligt, normalt inden for 1-2 hverdage.
         </p>
       </div>
     );

@@ -28,7 +28,7 @@ export default function Navbar() {
           className="font-display text-lg font-semibold text-[var(--color-ink)]"
           onClick={() => setOpen(false)}
         >
-          Klar Hverdag <span className="text-[var(--color-sage-dark)]">Ergoterapi</span>
+          <span className="text-[var(--color-sage-dark)]">Ergoterapi</span>
         </Link>
 
         {/* Desktop links */}

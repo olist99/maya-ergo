@@ -4,12 +4,6 @@ import { useEffect } from "react";
 import { getCalApi } from "@calcom/embed-react";
 import { CAL_NAMESPACE } from "@/lib/cal";
 
-/**
- * Mounted once in the root layout. After this runs, any element anywhere
- * in the app with `data-cal-link` + `data-cal-namespace="konsultation"`
- * attributes automatically opens a booking popup on click — no routing
- * or extra wiring needed per button.
- */
 export default function CalProvider() {
   useEffect(() => {
     (async function initCal() {
