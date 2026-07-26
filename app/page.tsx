@@ -22,9 +22,9 @@ const teaserServices = [
 ];
 
 const trust = [
-  "Autoriseret Ergoterapi",
+  "Ingen henvisning nødvendig",
+  "Kort ventetid, ofte tid inden for få dage",
   "Individuelt tilpassede behandlingsforløb",
-  "Evidensbaseret behandling",
 ];
 
 const faq = [
@@ -33,9 +33,14 @@ const faq = [
     answer: "Nej, du kan booke en tid hos mig direkte uden henvisning fra din læge.",
   },
   {
-    question: "Dækker min sundhedsforsikring behandlingen?",
+    question: "Er ergoterapi dækket af den offentlige sygesikring?",
     answer:
-      "Mange private sundhedsforsikringer dækker hele eller dele af behandlingen. Kontakt dit forsikringsselskab for at høre, om ergoterapi er omfattet, før din tid.",
+      "Nej, ergoterapi er hverken omfattet af den offentlige sygesikring eller Sygeforsikringen Danmark. Enkelte private sundhedsforsikringer giver tilskud, så det er værd at spørge dit forsikringsselskab, inden din tid.",
+  },
+  {
+    question: "Hvor lang er ventetiden?",
+    answer:
+      "Da jeg driver egen praksis uden venteliste i det offentlige system, kan jeg som regel tilbyde en tid inden for få dage.",
   },
   {
     question: "Kommer du ud i hjemmet?",
@@ -46,6 +51,11 @@ const faq = [
     question: "Hvor langt varer et forløb?",
     answer:
       "Det afhænger helt af din situation. Nogle har brug for en enkelt konsultation, andre et længere forløb med løbende opfølgning. Vi lægger altid en plan sammen efter den indledende samtale.",
+  },
+  {
+    question: "Hvad sker der, hvis jeg bliver nødt til at aflyse?",
+    answer:
+      "Afbud skal ske senest 24 timer før din tid. Ved sent afbud eller udeblivelse opkræves et gebyr på 300 kr.",
   },
 ];
 

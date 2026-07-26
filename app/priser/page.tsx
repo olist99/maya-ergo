@@ -74,9 +74,30 @@ export default function PricingPage() {
       </div>
 
       <div className="tint-panel mt-10 p-6 text-sm text-[var(--color-ink-soft)]">
-        Har du en sundhedsforsikring gennem dit arbejde, dækker den ofte hele
-        eller dele af behandlingen. Kontakt dit forsikringsselskab for at høre,
-        om ergoterapi er omfattet, før din tid.
+        Ergoterapi er ikke omfattet af den offentlige sygesikring eller
+        Sygeforsikringen Danmark. Enkelte private sundhedsforsikringer giver
+        tilskud til ergoterapeutisk behandling. Kontakt dit forsikringsselskab
+        for at høre, om din forsikring dækker, før din tid.
+      </div>
+
+      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <div className="card p-6">
+          <h2 className="font-display text-lg font-semibold text-[var(--color-ink)]">Betaling</h2>
+          <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
+            Der betales med MobilePay eller bankoverførsel efter hver
+            konsultation. Sundhedsydelser er momsfrie, så den pris du ser, er
+            den endelige pris. Ved længere forløb kan betalingen deles op
+            efter aftale.
+          </p>
+        </div>
+        <div className="card p-6">
+          <h2 className="font-display text-lg font-semibold text-[var(--color-ink)]">Afbud</h2>
+          <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
+            Afbud skal ske senest 24 timer før din tid. Ved sent afbud eller
+            udeblivelse opkræves et gebyr på 300 kr., da tiden ikke kan nå at
+            blive givet videre til en anden.
+          </p>
+        </div>
       </div>
 
       <div className="mt-16 flex flex-col items-center gap-4 text-center">
