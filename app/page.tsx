@@ -12,7 +12,7 @@ const teaserServices = [
   {
     image: "/illustrations/service-ergonomics.svg",
     title: "Ergonomi & arbejdsmiljø",
-    text: "Rådgivning om arbejdsstillinger og indretning, så kroppen skånes — hjemme og på jobbet.",
+    text: "Rådgivning om arbejdsstillinger og indretning, så kroppen skånes, hjemme og på jobbet.",
   },
   {
     image: "/illustrations/service-rehab.svg",
@@ -22,9 +22,9 @@ const teaserServices = [
 ];
 
 const trust = [
-  "Autoriseret af Sundhedsstyrelsen",
-  "Over 12 års klinisk erfaring",
-  "Individuel plan for hvert forløb",
+  "Autoriseret Ergoterapi",
+  "Individuelt tilpassede behandlingsforløb",
+  "Evidensbaseret behandling",
 ];
 
 export default function HomePage() {
@@ -35,13 +35,13 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24">
           <div>
             <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[var(--color-sage-dark)]">
-              Autoriseret ergoterapeut · København
+              Autoriseret ergoterapeut · Næstved
             </p>
             <h1 className="font-display text-4xl font-semibold leading-[1.1] text-[var(--color-ink)] sm:text-5xl">
               Styrk din hverdag med skræddersyet ergoterapi
             </h1>
             <p className="mt-6 max-w-md text-lg text-[var(--color-ink-soft)]">
-              Jeg hjælper dig med at bevare selvstændigheden derhjemme —
+              Jeg hjælper dig med at bevare selvstændigheden derhjemme,
               gennem personlig rådgivning, øvelser og praktiske løsninger
               tilpasset præcis din hverdag og dine mål.
             </p>

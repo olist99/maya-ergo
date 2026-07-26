@@ -20,9 +20,9 @@ const publicSans = Public_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Klar Hverdag Ergoterapi — Autoriseret ergoterapeut",
+  title: "Ergoterapi - Autoriseret ergoterapeut",
   description:
-    "Styrk din hverdag med skræddersyet ergoterapi. Hjemmebesøg, ergonomi, genoptræning og rådgivning om hjælpemidler i hele hovedstadsområdet.",
+    "Styrk din hverdag med skræddersyet ergoterapi. Hjemmebesøg, ergonomi, genoptræning og rådgivning om hjælpemidler.",
 };
 
 export default function RootLayout({
