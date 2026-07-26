@@ -5,13 +5,13 @@ import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Om mig - Klar Hverdag Ergoterapi",
-  description: "Autoriseret ergoterapeut med over 12 års erfaring i borgernær ergoterapi.",
+  description: "Autoriseret ergoterapeut med over 2 års erfaring i borgernær ergoterapi.",
 };
 
 const credentials = [
   {
     title: "Uddannelse",
-    text: "Professionsbachelor i ergoterapi, Professionshøjskolen Absalon, Campus Næstved, 2012.",
+    text: "Professionsbachelor i ergoterapi, Professionshøjskolen Absalon, 20XX.",
   },
   {
     title: "Autorisation",
@@ -43,7 +43,7 @@ export default function AboutPage() {
           <div className="mt-6 space-y-4 text-[var(--color-ink-soft)]">
             <p>
               Jeg hedder {business.name} og er autoriseret ergoterapeut med
-              base i {business.city}. I over 12 år har jeg arbejdet med borgere i
+              base i {business.city}. I over 2 år har jeg arbejdet med borgere i
               alle aldre, fra unge med arbejdsrelaterede skader til ældre,
               der ønsker at blive boende trygt i eget hjem.
             </p>

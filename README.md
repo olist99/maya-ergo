@@ -62,6 +62,18 @@ the calendar inline. Create a free account, add an event type, and set
   [Trustpilot Business](https://business.trustpilot.com) account, verify
   the domain, and set `NEXT_PUBLIC_TRUSTPILOT_BUSINESS_ID`.
 
+## Illustrations
+
+Illustrations in `public/illustrations/` are from
+[ManyPixels](https://www.manypixels.co/gallery) (free for personal and
+commercial use, no attribution required). The brand colors are baked
+directly into each SVG's fill values (`#6fcba0` for the green accent,
+`#74b9de` for the blue accent), so swapping in other ManyPixels pieces
+later means running the same find-and-replace on `#68e1fd` (their
+default accent) and `#ffd200` (their default secondary accent) rather
+than relying on a CSS variable, since SVGs loaded as files don't inherit
+page-level custom properties.
+
 ## SEO basics
 
 `app/robots.ts`, `app/sitemap.ts`, a generated favicon (`app/icon.tsx`,
