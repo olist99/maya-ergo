@@ -43,7 +43,7 @@ export const packagePlan = {
   title: "Mestringsforløb, 6 gange",
   price: "3.500 kr.",
   amount: 350000,
-  text: "Seks sessioner betalt samlet: 3.500 kr. i stedet for 3.900 kr., til dig der ønsker et sammenhængende forløb med fast opfølgning.",
+  text: "Seks sessioner betalt samlet: 3.500 kr. i stedet for 3.900 kr., til dig der gerne vil have et sammenhængende forløb med fast opfølgning.",
 };
 
 export const allPlans = [...plans, packagePlan];

@@ -6,7 +6,7 @@ import CalInlineBooking from "@/components/CalInlineBooking";
 import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
-  title: "Kontakt - Klar Hverdag Ergoterapi",
+  title: "Kontakt - Sikker Havn Ergoterapi",
   description: "Book en konsultation eller send en besked, så vender jeg tilbage hurtigst muligt.",
 };
 
@@ -66,9 +66,9 @@ export default function ContactPage() {
           </ul>
 
           <div className="tint-panel mt-8 p-5 text-sm text-[var(--color-ink-soft)]">
-            Kører du med kørestol eller rollator? Klinikken og adgangsvejen
-            er indrettet, så det er nemt at komme til. Sig endelig til, hvis
-            du har særlige behov.
+            Har du eller dit barn brug for et roligt sted at vente, eller
+            andre særlige hensyn? Sig endelig til på forhånd, så vi kan
+            indrette besøget bedst muligt.
           </div>
 
           <div className="card mt-6 overflow-hidden">

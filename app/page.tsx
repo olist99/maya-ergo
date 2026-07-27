@@ -2,65 +2,66 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
+import FaqAccordion from "@/components/FaqAccordion";
 
 const teaserServices = [
   {
     image: "/illustrations/service-home-visit.svg",
     title: "Psykoedukation for forældre",
-    text: "Lær om dit barns neurodivergens og få konkrete redskaber til at støtte barnet i de udfordringer, I møder i hverdagen.",
+    text: "I lærer om jeres barns neurodivergens og får konkrete redskaber til at støtte barnet i de problemer, I oplever i hverdagen. Vi finder ud af, hvad der faktisk virker for jer, ikke en generel opskrift.",
   },
   {
     image: "/illustrations/service-ergonomics.svg",
     title: "Kend din egen neurodivergens",
-    text: "Et forløb der hjælper dig med at forstå din egen autisme eller ADHD, og hvordan den påvirker dine hverdagsaktiviteter.",
+    text: "Et forløb hvor du lærer din egen autisme eller ADHD at kende, og hvordan den påvirker dine hverdagsaktiviteter. Jeg ved af egen erfaring, hvor stor en forskel den forståelse gør.",
   },
   {
     image: "/illustrations/service-rehab.svg",
     title: "Angst-mestringsforløb",
-    text: "Evidensbaserede redskaber til at mestre angst og belastningsreaktioner, tilpasset din situation.",
+    text: "Redskaber til at mestre din angst, ud fra evidensbaserede metoder. Ikke bare copingstrategier fra en bog, men noget der er tilpasset dig og din hverdag.",
   },
 ];
 
 const trust = [
-  "Ergoterapeut med egen erfaring med autisme",
+  "Egen erfaring med autisme",
   "Evidensbaserede metoder",
-  "Forløb virtuelt eller i dit eget hjem",
+  "Virtuelt eller hjemme hos dig",
 ];
 
 const faq = [
   {
     question: "Skal jeg have en lægehenvisning?",
-    answer: "Nej, du kan booke en tid hos mig direkte uden henvisning fra din læge.",
+    answer: "Nej, du kan booke en tid hos mig direkte, uden henvisning fra din læge.",
   },
   {
     question: "Er det dækket af den offentlige sygesikring?",
     answer:
-      "Nej, ergoterapi er hverken omfattet af den offentlige sygesikring eller Sygeforsikringen Danmark. Enkelte private sundhedsforsikringer giver tilskud, så det er værd at spørge dit forsikringsselskab, inden din tid.",
+      "Nej, ergoterapi er hverken omfattet af den offentlige sygesikring eller Sygeforsikringen Danmark. Enkelte private sundhedsforsikringer giver tilskud, så spørg endelig dit forsikringsselskab, inden du booker.",
   },
   {
-    question: "Foregår forløbene virtuelt eller i mit hjem?",
+    question: "Foregår forløbene virtuelt eller hjemme hos mig?",
     answer:
-      "Begge dele er muligt. Mange forløb, særligt psykoedukation og samtaleterapi, fungerer godt virtuelt, og jeg kommer også gerne ud i hjemmet, hvis det giver mere mening for jer.",
+      "Begge dele. Psykoedukation og samtaleterapi fungerer ofte fint virtuelt, og jeg kommer også gerne ud i hjemmet, hvis det giver mere mening for jer.",
   },
   {
     question: "Hvornår kan jeg booke en tid?",
     answer:
-      "Fra september kan jeg bookes fredage til sessioner med psykoedukation. Du er velkommen til at booke direkte i kalenderen her på siden, eller skrive en besked, hvis du er i tvivl om, hvad der passer bedst.",
+      "Fra september kan jeg bookes fredage til psykoedukation. Book gerne direkte i kalenderen her på siden, eller skriv til mig, hvis du er i tvivl om, hvad der passer bedst, jeg svarer så hurtigt jeg kan.",
   },
   {
-    question: "Er ydelserne kun til børn?",
+    question: "Er det kun til børn?",
     answer:
-      "Nej, jeg arbejder med børn, unge og voksne. Nogle forløb er rettet mod forældre, der ønsker at forstå og støtte deres barn, andre er til dig, der selv ønsker at forstå din neurodivergens eller få redskaber mod angst.",
+      "Nej. Jeg arbejder med børn, unge og voksne. Nogle kommer som forældre, der vil forstå og støtte deres barn bedre, andre kommer for at lære deres egen neurodivergens at kende, eller for at få redskaber mod angst.",
   },
   {
-    question: "Hvad hvis jeg har brug for hjælp til dysfagi på min arbejdsplads?",
+    question: "I har vist noget med dysfagi på arbejdspladser?",
     answer:
-      "Jeg tilbyder også konsulentydelser inden for dysfagi (synkebesvær) til arbejdspladser på Sjælland og Lolland, med udredning, træning og undervisning baseret på den nyeste evidens. Skriv til mig for et tilbud.",
+      "Ja, jeg tager også opgaver som privat konsulent inden for dysfagi (synkebesvær) til arbejdspladser på Sjælland og Lolland, med udredning, træning og undervisning. Det er noget af det, jeg brænder allermest for, skriv endelig til mig.",
   },
   {
-    question: "Hvad sker der, hvis jeg bliver nødt til at aflyse?",
+    question: "Hvad hvis jeg bliver nødt til at aflyse?",
     answer:
-      "Afbud skal ske senest 24 timer før din tid. Ved sent afbud eller udeblivelse opkræves et gebyr på 300 kr.",
+      "Så sig endelig til senest 24 timer før din tid. Ved sent afbud eller udeblivelse opkræver jeg et gebyr på 300 kr.",
   },
 ];
 
@@ -77,10 +78,11 @@ export default function HomePage() {
               En sikker havn for dig og din familie
             </h1>
             <p className="mt-6 max-w-md text-lg text-[var(--color-ink-soft)]">
-              Jeg hjælper børn, unge og voksne med neurodivergens,
-              sanseforstyrrelser og belastningsreaktioner, gennem
-              psykoedukation, mestringsforløb og samtaleterapi, der giver dig
-              redskaber til en hverdag, der fungerer.
+              Jeg er ergoterapeut med en masse gode redskaber i kufferten.
+              Sammen med min assistent Selina hjælper jeg børn, unge og
+              voksne med neurodivergens, sanseforstyrrelser og
+              belastningsreaktioner, med fokus på psykoedukation og mestring,
+              virtuelt eller i dit eget hjem.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <BookingButton className="btn btn-primary btn-lg">
@@ -91,6 +93,14 @@ export default function HomePage() {
                 Se ydelser
               </Link>
             </div>
+            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--color-ink-soft)]">
+              {trust.map((text) => (
+                <li key={text} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-sage-dark)]" aria-hidden="true" />
+                  {text}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mx-auto w-full max-w-md">
@@ -106,32 +116,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--color-line)] bg-[var(--color-surface)]">
-        <ul className="mx-auto flex max-w-6xl flex-col divide-y divide-[var(--color-line)] px-6 sm:flex-row sm:divide-x sm:divide-y-0 md:px-10">
-          {trust.map((text) => (
-            <li key={text} className="flex-1 py-6 text-center text-sm font-medium text-[var(--color-ink)] sm:px-6">
-              {text}
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-10">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-semibold text-[var(--color-ink)]">
             Hjælp der møder dig, hvor du er
           </h2>
           <p className="mt-4 text-[var(--color-ink-soft)]">
             Uanset om det handler om at forstå dit barns neurodivergens, din
-            egen, eller om at få redskaber mod angst og belastning, tager vi
-            udgangspunkt i din konkrete situation.
+            egen, eller om at få redskaber mod angst, tager jeg altid
+            udgangspunkt i lige præcis din situation.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-          {teaserServices.map(({ image, title, text }) => (
-            <div key={title} className="flex flex-col">
-              <div className="tint-panel h-48 overflow-hidden p-6">
+        <div className="mt-14 space-y-16">
+          {teaserServices.map(({ image, title, text }, index) => (
+            <div
+              key={title}
+              className={`grid items-center gap-8 md:grid-cols-[280px_1fr] md:gap-14 ${
+                index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+              }`}
+            >
+              <div className="tint-panel h-48 overflow-hidden p-6 md:h-56">
                 <Image
                   src={image}
                   alt=""
@@ -140,13 +145,15 @@ export default function HomePage() {
                   className="h-full w-full object-contain"
                 />
               </div>
-              <h3 className="mt-5 font-display text-lg font-semibold text-[var(--color-ink)]">{title}</h3>
-              <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{text}</p>
+              <div>
+                <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h3>
+                <p className="mt-3 max-w-xl text-[var(--color-ink-soft)]">{text}</p>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-14 text-center">
           <Link
             href="/services"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-sage-dark)] hover:underline"
@@ -175,13 +182,8 @@ export default function HomePage() {
         <h2 className="text-center font-display text-3xl font-semibold text-[var(--color-ink)]">
           Ofte stillede spørgsmål
         </h2>
-        <div className="mt-10 space-y-6">
-          {faq.map(({ question, answer }) => (
-            <div key={question} className="card p-6">
-              <h3 className="font-display text-lg font-semibold text-[var(--color-ink)]">{question}</h3>
-              <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{answer}</p>
-            </div>
-          ))}
+        <div className="mt-10">
+          <FaqAccordion items={faq} />
         </div>
       </section>
 

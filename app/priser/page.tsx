@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Check, ArrowRight } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
@@ -16,9 +17,9 @@ export default function PricingPage() {
       <div className="max-w-2xl">
         <h1 className="font-display text-4xl font-semibold text-[var(--color-ink)]">Priser</h1>
         <p className="mt-4 text-lg text-[var(--color-ink-soft)]">
-          Gennemsigtige priser uden overraskelser. Har du et forløb med flere
-          gange, laver vi altid en samlet plan, så du ved, hvad det koster,
-          før vi går i gang.
+          Gennemsigtige priser, ingen overraskelser. Skal I have et forløb med
+          flere gange, laver vi altid en samlet plan sammen, så du ved,
+          hvad det koster, før vi går i gang.
         </p>
       </div>
 
@@ -53,15 +54,17 @@ export default function PricingPage() {
         </div>
       </div>
 
-      <div className="tint-panel mt-6 flex flex-col items-start gap-4 p-7 sm:flex-row sm:items-center sm:justify-between">
+      <div className="tint-panel mt-6 grid gap-6 p-7 sm:grid-cols-[120px_1fr_auto] sm:items-center">
+        <Image src="/illustrations/service-dysfagi.svg" alt="" width={200} height={140} className="mx-auto h-20 w-auto sm:mx-0" />
         <div>
           <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">
             Dysfagi-konsulentydelse for virksomheder
           </h2>
           <p className="mt-2 max-w-xl text-sm text-[var(--color-ink-soft)]">
             Udredning, træning og undervisning i dysfagi (synkebesvær) til
-            arbejdspladser på Sjælland og Lolland. Prisen afhænger af
-            opgavens omfang, så skriv til mig for et tilbud.
+            arbejdspladser på Sjælland og Lolland. Det er noget af det, jeg
+            elsker allermest at lave. Prisen afhænger af opgavens omfang, så
+            skriv til mig for et tilbud.
           </p>
         </div>
         <Link href="/contact" className="btn btn-primary sm:shrink-0">
@@ -82,17 +85,18 @@ export default function PricingPage() {
           <h2 className="font-display text-lg font-semibold text-[var(--color-ink)]">Betaling</h2>
           <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
             Du kan betale online med kort, eller med MobilePay og
-            bankoverførsel efter hver session. Sundhedsydelser er momsfrie,
-            så den pris du ser, er den endelige pris. Ved længere forløb kan
-            betalingen deles op efter aftale.
+            bankoverførsel, når vi ses. Sundhedsydelser er momsfrie, så
+            prisen du ser, er den endelige pris. Skal I have et længere
+            forløb, kan vi altid finde ud af noget med betalingen sammen.
           </p>
         </div>
         <div className="card p-6">
           <h2 className="font-display text-lg font-semibold text-[var(--color-ink)]">Afbud</h2>
           <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
-            Afbud skal ske senest 24 timer før din tid. Ved sent afbud eller
-            udeblivelse opkræves et gebyr på 300 kr., da tiden ikke kan nå at
-            blive givet videre til en anden.
+            Sig endelig til senest 24 timer før din tid, hvis du bliver
+            nødt til at aflyse. Ved sent afbud eller udeblivelse opkræver
+            jeg et gebyr på 300 kr., da jeg ellers ikke kan nå at give tiden
+            videre til en anden.
           </p>
         </div>
       </div>
