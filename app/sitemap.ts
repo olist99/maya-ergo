@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://ergoterapi.dk";
+const siteUrl = "https://sikkerhavnergoterapi.dk";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "/services", "/priser", "/about", "/contact", "/privatlivspolitik"];

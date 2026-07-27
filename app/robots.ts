@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://ergoterapi.dk/sitemap.xml",
+    sitemap: "https://sikkerhavnergoterapi.dk/sitemap.xml",
   };
 }
