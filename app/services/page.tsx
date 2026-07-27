@@ -44,88 +44,103 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
-      <div className="max-w-2xl">
-        <h1 className="font-display text-4xl font-semibold text-[var(--color-ink)]">Ydelser</h1>
-        <p className="mt-4 text-lg text-[var(--color-ink-soft)]">
-          Alle forløb starter med, at vi tager en snak om din situation.
-          Herfra finder vi sammen frem til den kombination af ydelser, der
-          giver mest mening for dig og din familie.
-        </p>
-      </div>
-
-      <h2 className="mt-16 font-display text-2xl font-semibold text-[var(--color-ink)]">
-        Til dig og din familie
-      </h2>
-
-      <div className="mt-6 divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
-        {services.map(({ image, title, text, points }, index) => (
-          <article
-            key={title}
-            className={`flex flex-col gap-6 py-8 sm:flex-row sm:items-center ${
-              index % 2 === 1 ? "sm:flex-row-reverse" : ""
-            }`}
-          >
-            <div className="tint-panel h-36 w-full shrink-0 overflow-hidden p-5 sm:h-32 sm:w-48">
-              <Image src={image} alt="" width={320} height={220} className="h-full w-full object-contain" />
-            </div>
-            <div>
-              <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h3>
-              <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{text}</p>
-              <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5">
-                {points.map((point) => (
-                  <li key={point} className="flex items-center gap-1.5 text-xs font-medium text-[var(--color-ink)]">
-                    <Check className="h-3.5 w-3.5 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <h2 className="mt-20 font-display text-2xl font-semibold text-[var(--color-ink)]">
-        Til virksomheder
-      </h2>
-      <div className="tint-panel mt-6 grid gap-8 p-8 sm:grid-cols-[200px_1fr] sm:items-center md:p-10">
-        <Image
-          src="/illustrations/service-dysfagi.svg"
-          alt=""
-          width={320}
-          height={220}
-          className="mx-auto h-32 w-auto sm:mx-0"
-        />
-        <div>
-          <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">
-            Dysfagi-konsulentydelse for virksomheder
-          </h3>
-          <p className="mt-2 max-w-xl text-sm text-[var(--color-ink-soft)]">
-            Jeg tager opgaver som privat konsulent inden for dysfagi
-            (synkebesvær), med udredning, træning og undervisning baseret på
-            den nyeste evidens, til arbejdspladser på Sjælland og Lolland.
-            Det er noget af det, jeg brænder allermest for.
-          </p>
-          <Link href="/contact" className="btn btn-primary mt-5">
-            Skriv til mig
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
+    <>
+      <section className="border-b border-[var(--color-line)] bg-[var(--color-surface)]">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-20">
+          <div className="max-w-2xl">
+            <h1 className="font-display text-4xl font-semibold text-[var(--color-ink)]">Ydelser</h1>
+            <p className="mt-4 text-lg text-[var(--color-ink-soft)]">
+              Alle forløb starter med, at vi tager en snak om din situation.
+              Herfra finder vi sammen frem til den kombination af ydelser,
+              der giver mest mening for dig og din familie.
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="mt-20 flex flex-col items-center gap-4 text-center">
-        <h2 className="font-display text-2xl font-semibold text-[var(--color-ink)]">
-          Er du i tvivl om, hvad du har brug for?
-        </h2>
-        <p className="max-w-lg text-[var(--color-ink-soft)]">
-          Book en konsultation, så finder vi sammen ud af, hvilken hjælp der
-          giver bedst mening for lige netop din situation.
-        </p>
-        <BookingButton className="btn btn-primary btn-lg">
-          Book en konsultation
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </BookingButton>
-      </div>
-    </div>
+      <section className="border-b border-[var(--color-line)] bg-[var(--color-bg)]">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-20">
+          <h2 className="font-display text-2xl font-semibold text-[var(--color-ink)]">
+            Til dig og din familie
+          </h2>
+
+          <div className="mt-8 space-y-6">
+            {services.map(({ image, title, text, points }, index) => (
+              <article
+                key={title}
+                className={`card flex flex-col gap-6 p-6 sm:flex-row sm:items-center md:p-7 ${
+                  index % 2 === 1 ? "sm:flex-row-reverse" : ""
+                }`}
+              >
+                <div className="tint-panel h-36 w-full shrink-0 overflow-hidden p-5 sm:h-32 sm:w-48">
+                  <Image src={image} alt="" width={320} height={220} className="h-full w-full object-contain" />
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h3>
+                  <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{text}</p>
+                  <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5">
+                    {points.map((point) => (
+                      <li key={point} className="flex items-center gap-1.5 text-xs font-medium text-[var(--color-ink)]">
+                        <Check className="h-3.5 w-3.5 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[var(--color-line)] bg-[var(--color-surface)]">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-20">
+          <h2 className="font-display text-2xl font-semibold text-[var(--color-ink)]">
+            Til virksomheder
+          </h2>
+          <div className="tint-panel mt-8 grid gap-8 p-8 sm:grid-cols-[200px_1fr] sm:items-center md:p-10">
+            <Image
+              src="/illustrations/service-dysfagi.svg"
+              alt=""
+              width={320}
+              height={220}
+              className="mx-auto h-32 w-auto sm:mx-0"
+            />
+            <div>
+              <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">
+                Dysfagi-konsulentydelse for virksomheder
+              </h3>
+              <p className="mt-2 max-w-xl text-sm text-[var(--color-ink-soft)]">
+                Jeg tager opgaver som privat konsulent inden for dysfagi
+                (synkebesvær), med udredning, træning og undervisning
+                baseret på den nyeste evidens, til arbejdspladser på
+                Sjælland og Lolland. Det er noget af det, jeg brænder
+                allermest for.
+              </p>
+              <Link href="/contact" className="btn btn-primary mt-5">
+                Skriv til mig
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-bg)]">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-16 text-center md:px-10 md:py-20">
+          <h2 className="font-display text-2xl font-semibold text-[var(--color-ink)]">
+            Er du i tvivl om, hvad du har brug for?
+          </h2>
+          <p className="max-w-lg text-[var(--color-ink-soft)]">
+            Book en konsultation, så finder vi sammen ud af, hvilken hjælp
+            der giver bedst mening for lige netop din situation.
+          </p>
+          <BookingButton className="btn btn-primary btn-lg">
+            Book en konsultation
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </BookingButton>
+        </div>
+      </section>
+    </>
   );
 }

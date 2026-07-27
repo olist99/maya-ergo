@@ -68,7 +68,7 @@ const faq = [
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden border-b border-[var(--color-line)] bg-[var(--color-surface)]">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24">
           <div>
             <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[var(--color-sage-dark)]">
@@ -116,92 +116,96 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20 md:px-10">
-        <div className="max-w-2xl">
-          <h2 className="font-display text-3xl font-semibold text-[var(--color-ink)]">
-            Hjælp der møder dig, hvor du er
-          </h2>
-          <p className="mt-4 text-[var(--color-ink-soft)]">
-            Uanset om det handler om at forstå dit barns neurodivergens, din
-            egen, eller om at få redskaber mod angst, tager jeg altid
-            udgangspunkt i lige præcis din situation.
-          </p>
-        </div>
+      <section className="border-b border-[var(--color-line)] bg-[var(--color-bg)]">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
+          <div className="max-w-2xl">
+            <h2 className="font-display text-3xl font-semibold text-[var(--color-ink)]">
+              Hjælp der møder dig, hvor du er
+            </h2>
+            <p className="mt-4 text-[var(--color-ink-soft)]">
+              Uanset om det handler om at forstå dit barns neurodivergens, din
+              egen, eller om at få redskaber mod angst, tager jeg altid
+              udgangspunkt i lige præcis din situation.
+            </p>
+          </div>
 
-        <div className="mt-14 space-y-16">
-          {teaserServices.map(({ image, title, text }, index) => {
-            const reversed = index % 2 === 1;
-            const illustration = (
-              <div className="tint-panel h-48 overflow-hidden p-6 md:h-56">
-                <Image
-                  src={image}
-                  alt=""
-                  width={300}
-                  height={220}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-            );
-            const copy = (
-              <div>
-                <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h3>
-                <p className="mt-3 max-w-xl text-[var(--color-ink-soft)]">{text}</p>
-              </div>
-            );
-            return (
-              <div
-                key={title}
-                className={`grid items-center gap-8 md:gap-14 ${
-                  reversed ? "md:grid-cols-[1fr_280px]" : "md:grid-cols-[280px_1fr]"
-                }`}
-              >
-                {reversed ? (
-                  <>
-                    {copy}
-                    {illustration}
-                  </>
-                ) : (
-                  <>
-                    {illustration}
-                    {copy}
-                  </>
-                )}
-              </div>
-            );
-          })}
-        </div>
+          <div className="mt-12 space-y-6">
+            {teaserServices.map(({ image, title, text }, index) => {
+              const reversed = index % 2 === 1;
+              const illustration = (
+                <div className="tint-panel h-48 overflow-hidden p-6 md:h-full">
+                  <Image
+                    src={image}
+                    alt=""
+                    width={300}
+                    height={220}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              );
+              const copy = (
+                <div>
+                  <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h3>
+                  <p className="mt-3 max-w-xl text-[var(--color-ink-soft)]">{text}</p>
+                </div>
+              );
+              return (
+                <div
+                  key={title}
+                  className={`card grid items-center gap-8 p-6 md:gap-14 md:p-8 ${
+                    reversed ? "md:grid-cols-[1fr_280px]" : "md:grid-cols-[280px_1fr]"
+                  }`}
+                >
+                  {reversed ? (
+                    <>
+                      {copy}
+                      {illustration}
+                    </>
+                  ) : (
+                    <>
+                      {illustration}
+                      {copy}
+                    </>
+                  )}
+                </div>
+              );
+            })}
+          </div>
 
-        <div className="mt-14 text-center">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-sage-dark)] hover:underline"
-          >
-            Se alle ydelser
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
+          <div className="mt-10 text-center">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-sage-dark)] hover:underline"
+            >
+              Se alle ydelser
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-20 md:px-10">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faq.map(({ question, answer }) => ({
-                "@type": "Question",
-                name: question,
-                acceptedAnswer: { "@type": "Answer", text: answer },
-              })),
-            }),
-          }}
-        />
-        <h2 className="text-center font-display text-3xl font-semibold text-[var(--color-ink)]">
-          Ofte stillede spørgsmål
-        </h2>
-        <div className="mt-10">
-          <FaqAccordion items={faq} />
+      <section className="border-b border-[var(--color-line)] bg-[var(--color-surface)]">
+        <div className="mx-auto max-w-3xl px-6 py-20 md:px-10">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: faq.map(({ question, answer }) => ({
+                  "@type": "Question",
+                  name: question,
+                  acceptedAnswer: { "@type": "Answer", text: answer },
+                })),
+              }),
+            }}
+          />
+          <h2 className="text-center font-display text-3xl font-semibold text-[var(--color-ink)]">
+            Ofte stillede spørgsmål
+          </h2>
+          <div className="mt-10">
+            <FaqAccordion items={faq} />
+          </div>
         </div>
       </section>
 
