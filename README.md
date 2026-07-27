@@ -1,10 +1,8 @@
-# Ergoterapi
+# Sikker Havn Ergoterapi
 
-Marketing website for a self-employed Danish occupational therapist
-(ergoterapeut), built with Next.js 15 (App Router), TypeScript, Tailwind
-CSS v4, and lucide-react.
+Hjemmeside til Sikker Havn. Next.js 15 + Tailwind, deployer direkte til Vercel.
 
-## Getting started
+## Sådan kører du den
 
 ```bash
 npm install
@@ -12,129 +10,40 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open http://localhost:3000.
+Gå så bare ind på localhost:3000.
 
-## Before going live
+## Ting der skal udfyldes, før den går i luften
 
-- `lib/business.ts` is the single place to edit real business details:
-  name, phone, email, address, CVR, autorisationsnummer, and social links.
-  Everything else on the site (footer, about page, contact page, privacy
-  policy, structured data) reads from this file.
-- Set the environment variables described in `.env.example`:
-  `NEXT_PUBLIC_CAL_LINK` (your real Cal.com event), `RESEND_API_KEY` and
-  `CONTACT_TO_EMAIL` (so the contact form actually sends),
-  `STRIPE_SECRET_KEY` (so "Betal online" actually works, use a live key
-  once you're ready for real payments), and `NEXT_PUBLIC_TRUSTPILOT_REVIEW_URL`
-  / `NEXT_PUBLIC_TRUSTPILOT_BUSINESS_ID` (once you have Trustpilot reviews
-  to show).
-- Replace the headshot placeholder in `app/about/page.tsx` with a real
-  photo.
-- Update `siteUrl` in `app/layout.tsx`, `app/robots.ts`, and
-  `app/sitemap.ts` once the real domain is registered.
-- The `RESEND_API_KEY` sender address in `app/api/contact/route.ts` uses
-  Resend's shared test address (`onboarding@resend.dev`), which only
-  works for sending to your own verified email while testing. Verify your
-  real domain in Resend and change the `from` address before launch, or
-  emails to other recipients will be rejected.
+Lige nu er en del ting placeholder, så siden ikke går ned:
 
-## Contact form
+- `lib/business.ts` har det falske telefonnummer, CVR, adresse osv. Ret det dér, så opdaterer det sig alle steder (footer, privatlivspolitik, det Google-schema-agtige). Ikke noget med at lede efter det i fem forskellige filer, det er kun den ene.
+- Der er ikke noget rigtigt billede endnu, så About-siden har en grå boks med et personikon. Skift det ud i `app/about/page.tsx`, når der er et rigtigt portrætfoto.
+- Kopiér `.env.example` til `.env.local` og udfyld:
+  - Cal.com-linket, når der er en rigtig event sat op
+  - Resend-nøgle, så kontaktformularen faktisk sender en mail nogen steder hen (lige nu viser den bare en fejl, hvis man prøver uden, bedre end at lade som om det virkede)
+  - Stripe-nøgle til "betal online"-knapperne
+  - Trustpilot-tingene, betyder først noget, når der er rigtige anmeldelser at vise
 
-`components/ContactForm.tsx` posts to `app/api/contact/route.ts`, which
-sends the message via [Resend](https://resend.com)'s API. Without
-`RESEND_API_KEY` set, the form shows an error asking people to call
-instead of silently pretending to succeed.
+- Domænet er placeholder overalt (layout, robots.txt, sitemap), `sikkerhavnergoterapi.dk`. Opdater, når det rigtige domæne er registreret.
+- Resend's afsenderadresse er deres delte testadresse lige nu (`onboarding@resend.dev`), som kun virker, hvis man sender til sin egen mail. Når domænet er verificeret hos Resend, skal `from` i `app/api/contact/route.ts` ændres, ellers bliver mails til andre bare afvist.
 
-## Booking (Cal.com)
+## Integrationerne, kort fortalt
 
-"Book en konsultation" buttons across the site open a booking popup
-powered by [Cal.com](https://cal.com), and the Contact page also embeds
-the calendar inline. Create a free account, add an event type, and set
-`NEXT_PUBLIC_CAL_LINK` to its link (`your-username/konsultation`).
+**Booking** går gennem Cal.com, det er bare et embed/popup, ikke noget avanceret. Sæt `NEXT_PUBLIC_CAL_LINK`, så virker det.
 
-## Payments (Stripe)
+**Betaling** er Stripe Checkout, redirect-baseret, så der er ingen kortfelter, vi selv skal bygge eller sikre, det klarer Stripe. Priserne ligger ét sted, `lib/pricing.ts`, og ingen andre steder, så det, der vises på siden, og det, der rent faktisk trækkes, kan ikke komme til at afvige fra hinanden.
 
-Each pricing card and the forløbspakke on `/priser` has a "Betal online"
-button. It posts to `app/api/checkout/route.ts`, which creates a Stripe
-Checkout session and redirects to Stripe's hosted payment page, then
-back to `/priser/betaling-gennemfoert` on success.
+**Kontaktformularen** poster til en lille API-route, som sender mailen videre via Resend. Er nøglen ikke sat, fejler den tydeligt i stedet for stille og roligt at lyve for den, der har udfyldt den.
 
-1. Create a [Stripe](https://dashboard.stripe.com/register) account.
-2. Grab a secret key from
-   [dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys),
-   a `sk_test_...` key while developing, `sk_live_...` once you're ready
-   to accept real payments.
-3. Set `STRIPE_SECRET_KEY` in `.env.local` (and in Vercel's environment
-   variables for the deployed site).
+**Trustpilot** er delt op i to ting med vilje: et almindeligt link til anmeldelserne (virker med det samme, ingen cookie-godkendelse nødvendig for et link) og selve widgetten (venter på cookie-samtykke, da det er et tracking-script). De to kan slås til hver for sig.
 
-Prices and plan names live in one place, `lib/pricing.ts`, used both by
-the page and by the checkout route, so the amount actually charged can
-never drift from what's displayed. Without `STRIPE_SECRET_KEY` set, the
-buttons show an error instead of silently failing. No Stripe.js or
-client-side keys are needed since this uses Stripe's hosted Checkout
-page rather than embedded card fields.
+**Cookies**: der er en banner, Cal's cookies tæller som nødvendige, siden booking jo er hele pointen med siden, Trustpilots widget venter på samtykke.
 
-## Cookies, privacy, and reviews
+## Designting værd at vide
 
-- A cookie banner ("Accepter" / "Afvis valgfrie") shows on first visit,
-  stored in `localStorage`. Cal.com's booking cookies are treated as
-  essential and always active; the embedded Trustpilot widget only loads
-  after a visitor accepts optional cookies.
-- `/privatlivspolitik` documents what's collected through the contact
-  form and Cal.com bookings, cookie usage, retention periods, and GDPR
-  rights, all pulled from `lib/business.ts`.
-- To link your Trustpilot profile: create a
-  [Trustpilot Business](https://business.trustpilot.com) account, verify
-  your domain, and set two env vars:
-  - `NEXT_PUBLIC_TRUSTPILOT_REVIEW_URL`, your public profile URL (e.g.
-    `https://dk.trustpilot.com/review/yourdomain.dk`). This alone gets
-    you a plain "Se vores anmeldelser på Trustpilot" link in the footer,
-    visible to everyone, no cookie consent needed for a link.
-  - `NEXT_PUBLIC_TRUSTPILOT_BUSINESS_ID`, found under Integrations ->
-    TrustBox, to additionally show the embedded reviews widget (which,
-    being a tracking script, only loads after cookie consent).
+- Farverne er taget direkte fra det rigtige logo (grøn-tonen er samplet fra selve PNG'en), alt sammen i `app/globals.css`.
+- Alle rundede hjørner på siden er den samme 0,4rem, med vilje, sat ét sted og genbrugt overalt.
+- Ikonerne er Phosphor.
+- Illustrationerne er fra ManyPixels, farvet om til brandets grønne. Skifter du en ud, er tricket at søge-og-erstatte `#68e1fd` (deres standardaccent) og `#ffd200` (deres sekundære) før filen lægges ind, ellers dukker den op i den forkerte farve.
 
-## Illustrations
-
-Illustrations in `public/illustrations/` are from
-[ManyPixels](https://www.manypixels.co/gallery) (free for personal and
-commercial use, no attribution required). The brand colors are baked
-directly into each SVG's fill values (`#6fcba0` for the green accent,
-`#74b9de` for the blue accent), so swapping in other ManyPixels pieces
-later means running the same find-and-replace on `#68e1fd` (their
-default accent) and `#ffd200` (their default secondary accent) rather
-than relying on a CSS variable, since SVGs loaded as files don't inherit
-page-level custom properties.
-
-## SEO basics
-
-`app/robots.ts`, `app/sitemap.ts`, a generated favicon (`app/icon.tsx`,
-no external image needed), Open Graph/Twitter metadata, and JSON-LD
-structured data (`MedicalBusiness` in the root layout, `FAQPage` on the
-homepage) are all in place.
-
-## Structure
-
-- `app/page.tsx` homepage (hero, services teaser, FAQ, CTA)
-- `app/services/page.tsx` services grid
-- `app/priser/page.tsx` pricing, with Stripe checkout buttons
-- `app/priser/betaling-gennemfoert/page.tsx` post-payment confirmation
-- `app/about/page.tsx` bio, credentials, headshot placeholder
-- `app/contact/page.tsx` inline Cal.com booking widget, map, fallback message form
-- `app/privatlivspolitik/page.tsx` GDPR privacy policy
-- `app/api/contact/route.ts` sends the contact form via Resend
-- `app/api/checkout/route.ts` creates Stripe Checkout sessions
-- `app/robots.ts`, `app/sitemap.ts`, `app/icon.tsx`, `app/not-found.tsx`
-- `lib/business.ts` central business details, edit this before launch
-- `lib/pricing.ts` single source of truth for plan names/prices, used by
-  the pricing page and the checkout route
-- `lib/cal.ts`, `lib/stripe.ts`, `lib/trustpilot.ts` read the relevant env vars
-- `components/Navbar.tsx`, `components/Footer.tsx` shared layout
-- `components/BookingButton.tsx` opens the Cal.com popup from anywhere
-- `components/CalProvider.tsx`, `components/CalInlineBooking.tsx` Cal.com embed
-- `components/CheckoutButton.tsx` starts a Stripe Checkout session
-- `components/CookieConsentProvider.tsx`, `components/CookieConsentBanner.tsx`
-- `components/TrustpilotWidget.tsx` reviews, gated behind cookie consent
-- `components/ContactForm.tsx` posts to the API route above
-- `app/globals.css` design tokens (colors, fonts, a single 0.4rem radius
-  used everywhere) via Tailwind `@theme`, plus shared `.btn`/`.card`/
-  `.tint-panel`/`.field` classes
+Det er stort set det. Selve koden burde være læsbar nok til resten.
