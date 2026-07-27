@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { CaretDown } from "@phosphor-icons/react";
 
 type FaqItem = {
   question: string;
@@ -24,8 +24,9 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
               className="flex w-full items-center justify-between gap-4 py-5 text-left"
             >
               <span className="font-display text-lg font-semibold text-[var(--color-ink)]">{question}</span>
-              <ChevronDown
-                className={`h-5 w-5 shrink-0 text-[var(--color-sage-dark)] transition-transform ${open ? "rotate-180" : ""}`}
+              <CaretDown
+                weight="bold"
+                className={`h-4 w-4 shrink-0 text-[var(--color-sage-dark)] transition-transform ${open ? "rotate-180" : ""}`}
                 aria-hidden="true"
               />
             </button>

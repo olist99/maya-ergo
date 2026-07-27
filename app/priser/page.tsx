@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import BookingButton from "@/components/BookingButton";
 import CheckoutButton from "@/components/CheckoutButton";
 import { plans, packagePlan } from "@/lib/pricing";
@@ -39,7 +39,7 @@ export default function PricingPage() {
                 <ul className="mt-5 space-y-2.5 border-t border-[var(--color-line)] pt-5">
                   {points.map((point) => (
                     <li key={point} className="flex items-start gap-2.5 text-sm text-[var(--color-ink)]">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
+                      <Check weight="bold" className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -79,7 +79,7 @@ export default function PricingPage() {
             </div>
             <Link href="/contact" className="btn btn-primary sm:shrink-0">
               Skriv til mig
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <ArrowRight weight="bold" className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </div>

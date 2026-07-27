@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import BookingButton from "@/components/BookingButton";
 import FaqAccordion from "@/components/FaqAccordion";
 
@@ -87,7 +87,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <BookingButton className="btn btn-primary btn-lg">
                 Book en konsultation
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                <ArrowRight weight="bold" className="h-4 w-4" aria-hidden="true" />
               </BookingButton>
               <Link href="/services" className="btn btn-outline btn-lg">
                 Se ydelser
@@ -178,7 +178,7 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-sage-dark)] hover:underline"
             >
               Se alle ydelser
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <ArrowRight weight="bold" className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -220,7 +220,7 @@ export default function HomePage() {
           </p>
           <BookingButton className="btn btn-on-dark btn-lg">
             Book en konsultation
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            <ArrowRight weight="bold" className="h-4 w-4" aria-hidden="true" />
           </BookingButton>
         </div>
       </section>

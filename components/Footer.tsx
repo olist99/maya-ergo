@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Instagram, Star } from "lucide-react";
+import { Phone, EnvelopeSimple, MapPin, FacebookLogo, InstagramLogo, Star } from "@phosphor-icons/react/dist/ssr";
 import { business } from "@/lib/business";
 import TrustpilotWidget from "@/components/TrustpilotWidget";
 import { TRUSTPILOT_REVIEW_URL } from "@/lib/trustpilot";
@@ -29,7 +29,7 @@ export default function Footer() {
               aria-label="Sikker Havn Ergoterapi på Facebook"
               className="text-[var(--color-ink-soft)] hover:text-[var(--color-sage-dark)]"
             >
-              <Facebook className="h-5 w-5" aria-hidden="true" />
+              <FacebookLogo weight="duotone" className="h-5 w-5" aria-hidden="true" />
             </a>
             <a
               href={business.social.instagram}
@@ -38,7 +38,7 @@ export default function Footer() {
               aria-label="Sikker Havn Ergoterapi på Instagram"
               className="text-[var(--color-ink-soft)] hover:text-[var(--color-sage-dark)]"
             >
-              <Instagram className="h-5 w-5" aria-hidden="true" />
+              <InstagramLogo weight="duotone" className="h-5 w-5" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -58,15 +58,15 @@ export default function Footer() {
           <p className="text-sm font-semibold text-[var(--color-ink)]">Kontaktoplysninger</p>
           <ul className="mt-3 space-y-2.5 text-sm text-[var(--color-ink-soft)]">
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
+              <Phone weight="duotone" className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
               <a className="hover:text-[var(--color-sage-dark)]" href={business.phoneHref}>{business.phone}</a>
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
+              <EnvelopeSimple weight="duotone" className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
               <a className="hover:text-[var(--color-sage-dark)]" href={`mailto:${business.email}`}>{business.email}</a>
             </li>
             <li className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
+              <MapPin weight="duotone" className="h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
               <span>{business.address}, {business.postalCode} {business.city}</span>
             </li>
           </ul>
@@ -82,7 +82,7 @@ export default function Footer() {
               rel="noreferrer"
               className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-ink)] hover:text-[var(--color-sage-dark)]"
             >
-              <Star className="h-4 w-4 text-[var(--color-sage-dark)]" aria-hidden="true" />
+              <Star weight="fill" className="h-4 w-4 text-[var(--color-sage-dark)]" aria-hidden="true" />
               Se vores anmeldelser på Trustpilot
             </a>
           )}

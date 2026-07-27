@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
@@ -81,7 +81,7 @@ export default function ServicesPage() {
                   <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5">
                     {points.map((point) => (
                       <li key={point} className="flex items-center gap-1.5 text-xs font-medium text-[var(--color-ink)]">
-                        <Check className="h-3.5 w-3.5 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
+                        <Check weight="bold" className="h-3.5 w-3.5 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -119,7 +119,7 @@ export default function ServicesPage() {
               </p>
               <Link href="/contact" className="btn btn-primary mt-5">
                 Skriv til mig
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                <ArrowRight weight="bold" className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -137,7 +137,7 @@ export default function ServicesPage() {
           </p>
           <BookingButton className="btn btn-primary btn-lg">
             Book en konsultation
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            <ArrowRight weight="bold" className="h-4 w-4" aria-hidden="true" />
           </BookingButton>
         </div>
       </section>

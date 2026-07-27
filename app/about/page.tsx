@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { User } from "lucide-react";
+import { User } from "@phosphor-icons/react/dist/ssr";
 import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function AboutPage() {
             <div className="mx-auto w-full max-w-[280px] md:mx-0">
               <div className="tint-panel flex aspect-[4/5] w-full items-center justify-center border border-[var(--color-line)]">
                 <div className="flex flex-col items-center gap-2 text-[var(--color-ink-soft)]">
-                  <User className="h-14 w-14" strokeWidth={1.5} aria-hidden="true" />
+                  <User weight="thin" className="h-14 w-14" aria-hidden="true" />
                   <span className="text-xs">Portrætfoto</span>
                 </div>
               </div>

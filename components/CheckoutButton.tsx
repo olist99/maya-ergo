@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CreditCard } from "lucide-react";
+import { CreditCard } from "@phosphor-icons/react";
 
 type CheckoutButtonProps = {
   planId: string;
@@ -40,7 +40,7 @@ export default function CheckoutButton({ planId, className }: CheckoutButtonProp
     <div>
       <button type="button" onClick={handleClick} disabled={loading} className={className}>
         {loading ? "Åbner betaling…" : "Betal online"}
-        {!loading && <CreditCard className="h-4 w-4" aria-hidden="true" />}
+        {!loading && <CreditCard weight="duotone" className="h-4 w-4" aria-hidden="true" />}
       </button>
       {error && <p className="mt-2 text-xs text-red-700">{error}</p>}
     </div>

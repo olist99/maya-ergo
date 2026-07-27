@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, EnvelopeSimple, MapPin, Clock } from "@phosphor-icons/react/dist/ssr";
 import ContactForm from "@/components/ContactForm";
 import CalInlineBooking from "@/components/CalInlineBooking";
 import { business } from "@/lib/business";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const details = [
   { icon: Phone, label: "Telefon", value: business.phone, href: business.phoneHref },
-  { icon: Mail, label: "Email", value: business.email, href: `mailto:${business.email}` },
+  { icon: EnvelopeSimple, label: "Email", value: business.email, href: `mailto:${business.email}` },
   { icon: MapPin, label: "Adresse", value: `${business.address}, ${business.postalCode} ${business.city}` },
   { icon: Clock, label: "Åbningstider", value: business.openingHours },
 ];
@@ -56,7 +56,7 @@ export default function ContactPage() {
               <ul className="mt-5 space-y-5">
                 {details.map(({ icon: Icon, label, value, href }) => (
                   <li key={label} className="flex items-start gap-3">
-                    <Icon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
+                    <Icon weight="duotone" className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
                     <div className="text-sm">
                       <p className="font-medium text-[var(--color-ink)]">{label}</p>
                       {href ? (

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { List, X } from "@phosphor-icons/react";
 import BookingButton from "@/components/BookingButton";
 
 const links = [
@@ -69,7 +69,7 @@ export default function Navbar() {
           aria-label={open ? "Luk menu" : "Åbn menu"}
           className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[var(--color-ink)] md:hidden"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-6 w-6" weight="duotone" /> : <List className="h-6 w-6" weight="duotone" />}
         </button>
       </nav>
 

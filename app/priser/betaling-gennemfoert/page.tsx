@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { getStripe } from "@/lib/stripe";
 
 export const metadata: Metadata = {
-  title: "Betaling gennemført - Ergoterapi",
+  title: "Betaling gennemført - Sikker Havn Ergoterapi",
   description: "Bekræftelse på din betaling.",
 };
 
@@ -38,7 +38,7 @@ export default async function PaymentSuccessPage({ searchParams }: Props) {
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col items-center px-6 py-24 text-center md:px-10">
-      <CheckCircle2 className="h-14 w-14 text-[var(--color-sage-dark)]" aria-hidden="true" />
+      <CheckCircle weight="duotone" className="h-14 w-14 text-[var(--color-sage-dark)]" aria-hidden="true" />
       <h1 className="mt-6 font-display text-3xl font-semibold text-[var(--color-ink)]">
         Tak for din betaling
       </h1>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Public_Sans } from "next/font/google";
+import { Fraunces, Karla } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,15 +8,15 @@ import { CookieConsentProvider } from "@/components/CookieConsentProvider";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import { business } from "@/lib/business";
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  style: ["normal"],
+  style: ["normal", "italic"],
   weight: ["500", "600", "700"],
 });
 
-const publicSans = Public_Sans({
+const karla = Karla({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -80,7 +80,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
-      <body className={`${newsreader.variable} ${publicSans.variable} antialiased`}>
+      <body className={`${fraunces.variable} ${karla.variable} antialiased`}>
         <CookieConsentProvider>
           <a
             href="#main-content"
