@@ -129,13 +129,9 @@ export default function HomePage() {
         </div>
 
         <div className="mt-14 space-y-16">
-          {teaserServices.map(({ image, title, text }, index) => (
-            <div
-              key={title}
-              className={`grid items-center gap-8 md:grid-cols-[280px_1fr] md:gap-14 ${
-                index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-              }`}
-            >
+          {teaserServices.map(({ image, title, text }, index) => {
+            const reversed = index % 2 === 1;
+            const illustration = (
               <div className="tint-panel h-48 overflow-hidden p-6 md:h-56">
                 <Image
                   src={image}
@@ -145,12 +141,34 @@ export default function HomePage() {
                   className="h-full w-full object-contain"
                 />
               </div>
+            );
+            const copy = (
               <div>
                 <h3 className="font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h3>
                 <p className="mt-3 max-w-xl text-[var(--color-ink-soft)]">{text}</p>
               </div>
-            </div>
-          ))}
+            );
+            return (
+              <div
+                key={title}
+                className={`grid items-center gap-8 md:gap-14 ${
+                  reversed ? "md:grid-cols-[1fr_280px]" : "md:grid-cols-[280px_1fr]"
+                }`}
+              >
+                {reversed ? (
+                  <>
+                    {copy}
+                    {illustration}
+                  </>
+                ) : (
+                  <>
+                    {illustration}
+                    {copy}
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="mt-14 text-center">
