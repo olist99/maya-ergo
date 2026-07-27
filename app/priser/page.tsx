@@ -1,35 +1,14 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
+import Link from "next/link";
+import { Check, ArrowRight } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
+import CheckoutButton from "@/components/CheckoutButton";
+import { plans, packagePlan } from "@/lib/pricing";
 
 export const metadata: Metadata = {
-  title: "Priser - Klar Hverdag Ergoterapi",
-  description: "Priser på konsultationer, hjemmebesøg og forløb hos Ergoterapi.",
+  title: "Priser - Sikker Havn Ergoterapi",
+  description: "Priser på psykoedukation, mestringsforløb og sanseterapi hos Sikker Havn Ergoterapi.",
 };
-
-const plans = [
-  {
-    title: "Indledende konsultation",
-    duration: "60 min",
-    price: "950 kr.",
-    text: "Din første samtale, hvor vi kortlægger din situation, dine udfordringer og hvad du gerne vil opnå.",
-    points: ["Grundig samtale og funktionsvurdering", "Klar plan for det videre forløb", "Skriftligt resumé bagefter"],
-  },
-  {
-    title: "Opfølgende konsultation",
-    duration: "45 min",
-    price: "650 kr.",
-    text: "Løbende sessioner, hvor vi arbejder videre med træning, ergonomi eller hjælpemidler.",
-    points: ["Tilpasset dagens behov", "Øvelser til hjemmebrug", "Kan foregå i klinik eller hjemme"],
-  },
-  {
-    title: "Hjemmebesøg",
-    duration: "op til 90 min",
-    price: "1.200 kr.",
-    text: "Et fuldt hjemmebesøg med gennemgang af boligen og konkrete anbefalinger til indretning.",
-    points: ["Inkl. transport i Næstved og omegn", "Gennemgang af hele boligen", "Skriftlig rapport efter besøget"],
-  },
-];
 
 export default function PricingPage() {
   return (
@@ -44,9 +23,9 @@ export default function PricingPage() {
       </div>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {plans.map(({ title, duration, price, text, points }) => (
-          <article key={title} className="card flex flex-col p-7">
-            <p className="text-sm font-medium text-[var(--color-blue-dark)]">{duration}</p>
+        {plans.map(({ id, title, duration, price, text, points }) => (
+          <article key={id} className="card flex flex-col p-7">
+            <p className="text-sm font-medium text-[var(--color-sage-dark)]">{duration}</p>
             <h2 className="mt-1 font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h2>
             <p className="mt-3 font-display text-3xl font-semibold text-[var(--color-ink)]">{price}</p>
             <p className="mt-3 text-sm text-[var(--color-ink-soft)]">{text}</p>
@@ -58,19 +37,37 @@ export default function PricingPage() {
                 </li>
               ))}
             </ul>
+            <CheckoutButton planId={id} className="btn btn-outline mt-5 w-full" />
           </article>
         ))}
       </div>
 
       <div className="card mt-6 flex flex-col items-start gap-4 p-7 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">Forløbspakke, 5 gange</h2>
+          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">{packagePlan.title}</h2>
+          <p className="mt-2 max-w-xl text-sm text-[var(--color-ink-soft)]">{packagePlan.text}</p>
+        </div>
+        <div className="flex flex-col items-start gap-3 sm:items-end sm:shrink-0">
+          <p className="font-display text-2xl font-semibold text-[var(--color-ink)]">{packagePlan.price}</p>
+          <CheckoutButton planId={packagePlan.id} className="btn btn-primary" />
+        </div>
+      </div>
+
+      <div className="tint-panel mt-6 flex flex-col items-start gap-4 p-7 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">
+            Dysfagi-konsulentydelse for virksomheder
+          </h2>
           <p className="mt-2 max-w-xl text-sm text-[var(--color-ink-soft)]">
-            Fem opfølgende konsultationer betalt samlet: 2.900 kr. i stedet for
-            3.250 kr., til dig der ønsker et længere forløb med fast opfølgning.
+            Udredning, træning og undervisning i dysfagi (synkebesvær) til
+            arbejdspladser på Sjælland og Lolland. Prisen afhænger af
+            opgavens omfang, så skriv til mig for et tilbud.
           </p>
         </div>
-        <p className="font-display text-2xl font-semibold text-[var(--color-ink)] sm:shrink-0">2.900 kr.</p>
+        <Link href="/contact" className="btn btn-primary sm:shrink-0">
+          Skriv til mig
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
       </div>
 
       <div className="tint-panel mt-10 p-6 text-sm text-[var(--color-ink-soft)]">
@@ -84,10 +81,10 @@ export default function PricingPage() {
         <div className="card p-6">
           <h2 className="font-display text-lg font-semibold text-[var(--color-ink)]">Betaling</h2>
           <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
-            Der betales med MobilePay eller bankoverførsel efter hver
-            konsultation. Sundhedsydelser er momsfrie, så den pris du ser, er
-            den endelige pris. Ved længere forløb kan betalingen deles op
-            efter aftale.
+            Du kan betale online med kort, eller med MobilePay og
+            bankoverførsel efter hver session. Sundhedsydelser er momsfrie,
+            så den pris du ser, er den endelige pris. Ved længere forløb kan
+            betalingen deles op efter aftale.
           </p>
         </div>
         <div className="card p-6">
@@ -105,7 +102,7 @@ export default function PricingPage() {
           Klar til at komme i gang?
         </h2>
         <p className="max-w-lg text-[var(--color-ink-soft)]">
-          Book en indledende konsultation, så finder vi sammen ud af, hvad der
+          Book en indledende samtale, så finder vi sammen ud af, hvad der
           passer bedst til din situation.
         </p>
         <BookingButton className="btn btn-primary btn-lg">

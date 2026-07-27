@@ -6,25 +6,25 @@ import BookingButton from "@/components/BookingButton";
 const teaserServices = [
   {
     image: "/illustrations/service-home-visit.svg",
-    title: "Hjemmebesøg & boligindretning",
-    text: "Vi ser på boligen med friske øjne og finder løsninger, der gør hverdagen lettere og tryggere.",
+    title: "Psykoedukation for forældre",
+    text: "Lær om dit barns neurodivergens og få konkrete redskaber til at støtte barnet i de udfordringer, I møder i hverdagen.",
   },
   {
     image: "/illustrations/service-ergonomics.svg",
-    title: "Ergonomi & arbejdsmiljø",
-    text: "Rådgivning om arbejdsstillinger og indretning, så kroppen skånes, hjemme og på jobbet.",
+    title: "Kend din egen neurodivergens",
+    text: "Et forløb der hjælper dig med at forstå din egen autisme eller ADHD, og hvordan den påvirker dine hverdagsaktiviteter.",
   },
   {
     image: "/illustrations/service-rehab.svg",
-    title: "Genoptræning",
-    text: "Individuelt tilrettelagte forløb, der genopbygger funktion, styrke og selvstændighed.",
+    title: "Angst-mestringsforløb",
+    text: "Evidensbaserede redskaber til at mestre angst og belastningsreaktioner, tilpasset din situation.",
   },
 ];
 
 const trust = [
-  "Ingen henvisning nødvendig",
-  "Kort ventetid, ofte tid inden for få dage",
-  "Individuelt tilpassede behandlingsforløb",
+  "Ergoterapeut med egen erfaring med autisme",
+  "Evidensbaserede metoder",
+  "Forløb virtuelt eller i dit eget hjem",
 ];
 
 const faq = [
@@ -33,24 +33,29 @@ const faq = [
     answer: "Nej, du kan booke en tid hos mig direkte uden henvisning fra din læge.",
   },
   {
-    question: "Er ergoterapi dækket af den offentlige sygesikring?",
+    question: "Er det dækket af den offentlige sygesikring?",
     answer:
       "Nej, ergoterapi er hverken omfattet af den offentlige sygesikring eller Sygeforsikringen Danmark. Enkelte private sundhedsforsikringer giver tilskud, så det er værd at spørge dit forsikringsselskab, inden din tid.",
   },
   {
-    question: "Hvor lang er ventetiden?",
+    question: "Foregår forløbene virtuelt eller i mit hjem?",
     answer:
-      "Da jeg driver egen praksis uden venteliste i det offentlige system, kan jeg som regel tilbyde en tid inden for få dage.",
+      "Begge dele er muligt. Mange forløb, særligt psykoedukation og samtaleterapi, fungerer godt virtuelt, og jeg kommer også gerne ud i hjemmet, hvis det giver mere mening for jer.",
   },
   {
-    question: "Kommer du ud i hjemmet?",
+    question: "Hvornår kan jeg booke en tid?",
     answer:
-      "Ja, hjemmebesøg er en af mine kerneydelser. Jeg dækker Næstved og det meste af det omkringliggende område.",
+      "Fra september kan jeg bookes fredage til sessioner med psykoedukation. Du er velkommen til at booke direkte i kalenderen her på siden, eller skrive en besked, hvis du er i tvivl om, hvad der passer bedst.",
   },
   {
-    question: "Hvor langt varer et forløb?",
+    question: "Er ydelserne kun til børn?",
     answer:
-      "Det afhænger helt af din situation. Nogle har brug for en enkelt konsultation, andre et længere forløb med løbende opfølgning. Vi lægger altid en plan sammen efter den indledende samtale.",
+      "Nej, jeg arbejder med børn, unge og voksne. Nogle forløb er rettet mod forældre, der ønsker at forstå og støtte deres barn, andre er til dig, der selv ønsker at forstå din neurodivergens eller få redskaber mod angst.",
+  },
+  {
+    question: "Hvad hvis jeg har brug for hjælp til dysfagi på min arbejdsplads?",
+    answer:
+      "Jeg tilbyder også konsulentydelser inden for dysfagi (synkebesvær) til arbejdspladser på Sjælland og Lolland, med udredning, træning og undervisning baseret på den nyeste evidens. Skriv til mig for et tilbud.",
   },
   {
     question: "Hvad sker der, hvis jeg bliver nødt til at aflyse?",
@@ -65,16 +70,17 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-10 md:py-24">
           <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[var(--color-blue-dark)]">
-              Autoriseret ergoterapeut · Næstved
+            <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[var(--color-sage-dark)]">
+              Ergoterapeut · Autisme & sanseforstyrrelser · Næstved
             </p>
             <h1 className="font-display text-4xl font-semibold leading-[1.1] text-[var(--color-ink)] sm:text-5xl">
-              Styrk din hverdag med skræddersyet ergoterapi
+              En sikker havn for dig og din familie
             </h1>
             <p className="mt-6 max-w-md text-lg text-[var(--color-ink-soft)]">
-              Jeg hjælper dig med at bevare selvstændigheden derhjemme,
-              gennem personlig rådgivning, øvelser og praktiske løsninger
-              tilpasset præcis din hverdag og dine mål.
+              Jeg hjælper børn, unge og voksne med neurodivergens,
+              sanseforstyrrelser og belastningsreaktioner, gennem
+              psykoedukation, mestringsforløb og samtaleterapi, der giver dig
+              redskaber til en hverdag, der fungerer.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <BookingButton className="btn btn-primary btn-lg">
@@ -90,7 +96,7 @@ export default function HomePage() {
           <div className="mx-auto w-full max-w-md">
             <Image
               src="/illustrations/hero-at-home.svg"
-              alt="Illustration af en person, der har det godt og trygt derhjemme"
+              alt="Illustration af en person, der har det godt og trygt"
               width={400}
               height={400}
               className="h-auto w-full"
@@ -116,9 +122,9 @@ export default function HomePage() {
             Hjælp der møder dig, hvor du er
           </h2>
           <p className="mt-4 text-[var(--color-ink-soft)]">
-            Uanset om det handler om boligen, arbejdspladsen eller vejen
-            tilbage efter sygdom eller skade, tager vi udgangspunkt i dine
-            konkrete udfordringer og mål.
+            Uanset om det handler om at forstå dit barns neurodivergens, din
+            egen, eller om at få redskaber mod angst og belastning, tager vi
+            udgangspunkt i din konkrete situation.
           </p>
         </div>
 
@@ -182,7 +188,7 @@ export default function HomePage() {
       <section className="bg-[var(--color-sage-dark)]">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-16 text-center md:px-10">
           <h2 className="font-display text-3xl font-semibold text-white">
-            Klar til en hverdag, der fungerer bedre?
+            Klar til at finde din sikre havn?
           </h2>
           <p className="max-w-xl text-[var(--color-sage-light)]">
             Book en uforpligtende konsultation, så tager vi en snak om, hvor

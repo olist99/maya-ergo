@@ -44,9 +44,11 @@ export default function TrustpilotWidget() {
         data-style-width="100%"
         data-theme="light"
       >
-        <a href={TRUSTPILOT_REVIEW_URL} target="_blank" rel="noopener noreferrer">
-          Trustpilot
-        </a>
+        {TRUSTPILOT_REVIEW_URL && (
+          <a href={TRUSTPILOT_REVIEW_URL} target="_blank" rel="noopener noreferrer">
+            Trustpilot
+          </a>
+        )}
       </div>
     </>
   );

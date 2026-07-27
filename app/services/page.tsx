@@ -4,34 +4,46 @@ import { Check, ArrowRight } from "lucide-react";
 import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
-  title: "Ydelser - Klar Hverdag Ergoterapi",
-  description: "Hjemmebesøg, ergonomi, genoptræning og hjælpemidler tilpasset dine behov.",
+  title: "Ydelser - Sikker Havn Ergoterapi",
+  description: "Psykoedukation, mestringsforløb, sanseterapi og samtaleterapi for børn, unge og voksne.",
 };
 
 const services = [
   {
     image: "/illustrations/service-home-visit.svg",
-    title: "Hjemmebesøg & boligindretning",
-    text: "Jeg kommer hjem til dig og vurderer, hvordan boligen understøtter din hverdag, og hvor der er plads til forbedring.",
-    points: ["Gennemgang af hele boligen", "Konkrete anbefalinger til indretning", "Skriftlig rapport efter besøget"],
+    title: "Psykoedukation for forældre",
+    text: "I lærer om jeres barns neurodivergens og får konkrete redskaber til at støtte barnet i de problemer, der opleves i hverdagen.",
+    points: ["Forståelse for barnets oplevelse", "Konkrete redskaber til hverdagen", "Virtuelt eller i jeres hjem"],
   },
   {
     image: "/illustrations/service-ergonomics.svg",
-    title: "Ergonomi & arbejdsmiljø",
-    text: "Rådgivning om arbejdsstillinger, hjælpemidler og indretning af arbejdspladsen, så belastningen på kroppen mindskes.",
-    points: ["Vurdering af arbejdsplads", "Øvelser mod belastningsskader", "Anbefalinger til arbejdsgiver"],
+    title: "Kend din egen neurodivergens",
+    text: "Et forløb der hjælper dig med at lære din egen autisme eller ADHD at kende, og hvordan den påvirker dine hverdagsaktiviteter.",
+    points: ["Personlig indsigt i din neurodivergens", "Redskaber tilpasset dig", "Løbende opfølgning"],
   },
   {
     image: "/illustrations/service-rehab.svg",
-    title: "Genoptræning",
-    text: "Individuelt tilrettelagte genoptræningsforløb efter sygdom, operation eller skade, med fokus på dine egne mål.",
-    points: ["Funktionsvurdering", "Skræddersyet træningsplan", "Løbende opfølgning"],
+    title: "Angst-mestringsforløb",
+    text: "Redskaber til at mestre angst, baseret på evidensbaserede metoder, tilpasset din situation og dine udfordringer.",
+    points: ["Evidensbaserede metoder", "Konkrete mestringsstrategier", "Individuelt tilrettelagt"],
   },
   {
     image: "/illustrations/service-aids.svg",
-    title: "Hjælpemidler & rådgivning",
-    text: "Vejledning i valg og ansøgning om hjælpemidler, der gør konkrete daglige gøremål lettere og mere sikre.",
-    points: ["Afprøvning af hjælpemidler", "Hjælp til ansøgning hos kommunen", "Opfølgning på brug"],
+    title: "Samtaleterapi",
+    text: "En tryg ramme til at tale om det, der fylder, med udgangspunkt i psykoedukation og mestring frem for kun samtale.",
+    points: ["Tryg og ligeværdig dialog", "Virtuelt eller fysisk", "Til unge og voksne"],
+  },
+  {
+    image: "/illustrations/service-sensory.svg",
+    title: "Sanseterapi & sanseforstyrrelser",
+    text: "Hjælp til at forstå og regulere sanseforstyrrelser. Der etableres løbende sanseshold for forældre og børn med fokus på aldersvarende udvikling af sansesystemet.",
+    points: ["Individuel sansescreening", "Konkrete strategier til regulering", "Sanseshold for forældre og børn"],
+  },
+  {
+    image: "/illustrations/service-dysfagi.svg",
+    title: "Dysfagi-konsulentydelse for virksomheder",
+    text: "Privat konsulentydelse inden for dysfagi (synkebesvær) og undervisning baseret på den nyeste evidens, til arbejdspladser på Sjælland og Lolland.",
+    points: ["Udredning og træning", "Undervisning på højeste evidensniveau", "Til arbejdspladser i hele regionen"],
   },
 ];
 
@@ -43,7 +55,7 @@ export default function ServicesPage() {
         <p className="mt-4 text-lg text-[var(--color-ink-soft)]">
           Alle forløb starter med en samtale om din situation. Herfra
           sammensætter vi den kombination af ydelser, der giver mest mening
-          for dig.
+          for dig og din familie.
         </p>
       </div>
 
@@ -75,7 +87,7 @@ export default function ServicesPage() {
         </h2>
         <p className="max-w-lg text-[var(--color-ink-soft)]">
           Book en konsultation, så finder vi sammen ud af, hvilken hjælp der
-          giver bedst mening for lige netop din hverdag.
+          giver bedst mening for lige netop din situation.
         </p>
         <BookingButton className="btn btn-primary btn-lg">
           Book en konsultation

@@ -12,21 +12,17 @@
   --radius-2xl: 0.4rem;
   --radius-3xl: 0.4rem;
 
-  --color-bg: #f2f6f5;
+  --color-bg: #f5f6f2;
   --color-surface: #ffffff;
-  --color-mint: #ddf1e8;
-  --color-line: #dde6e3;
+  --color-mint: #e4e8dc;
+  --color-line: #dde1d6;
 
   --color-ink: #22302f;
   --color-ink-soft: #4b5a58;
 
-  --color-sage: #6fcba0;
-  --color-sage-dark: #1f6b4a;
-  --color-sage-light: #e3f7ee;
-
-  --color-blue: #74b9de;
-  --color-blue-dark: #245c7d;
-  --color-blue-light: #e1f1f9;
+  --color-sage: #839669;
+  --color-sage-dark: #465438;
+  --color-sage-light: #ebefe6;
 }
 
 html {
@@ -66,7 +62,7 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary:hover {
-  background-color: #17573b;
+  background-color: #37422c;
 }
 
 .btn-on-dark {

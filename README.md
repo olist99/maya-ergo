@@ -22,8 +22,10 @@ Open http://localhost:3000.
   policy, structured data) reads from this file.
 - Set the environment variables described in `.env.example`:
   `NEXT_PUBLIC_CAL_LINK` (your real Cal.com event), `RESEND_API_KEY` and
-  `CONTACT_TO_EMAIL` (so the contact form actually sends), and
-  `NEXT_PUBLIC_TRUSTPILOT_BUSINESS_ID` (once you have Trustpilot reviews
+  `CONTACT_TO_EMAIL` (so the contact form actually sends),
+  `STRIPE_SECRET_KEY` (so "Betal online" actually works, use a live key
+  once you're ready for real payments), and `NEXT_PUBLIC_TRUSTPILOT_REVIEW_URL`
+  / `NEXT_PUBLIC_TRUSTPILOT_BUSINESS_ID` (once you have Trustpilot reviews
   to show).
 - Replace the headshot placeholder in `app/about/page.tsx` with a real
   photo.
@@ -49,18 +51,47 @@ powered by [Cal.com](https://cal.com), and the Contact page also embeds
 the calendar inline. Create a free account, add an event type, and set
 `NEXT_PUBLIC_CAL_LINK` to its link (`your-username/konsultation`).
 
+## Payments (Stripe)
+
+Each pricing card and the forløbspakke on `/priser` has a "Betal online"
+button. It posts to `app/api/checkout/route.ts`, which creates a Stripe
+Checkout session and redirects to Stripe's hosted payment page, then
+back to `/priser/betaling-gennemfoert` on success.
+
+1. Create a [Stripe](https://dashboard.stripe.com/register) account.
+2. Grab a secret key from
+   [dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys),
+   a `sk_test_...` key while developing, `sk_live_...` once you're ready
+   to accept real payments.
+3. Set `STRIPE_SECRET_KEY` in `.env.local` (and in Vercel's environment
+   variables for the deployed site).
+
+Prices and plan names live in one place, `lib/pricing.ts`, used both by
+the page and by the checkout route, so the amount actually charged can
+never drift from what's displayed. Without `STRIPE_SECRET_KEY` set, the
+buttons show an error instead of silently failing. No Stripe.js or
+client-side keys are needed since this uses Stripe's hosted Checkout
+page rather than embedded card fields.
+
 ## Cookies, privacy, and reviews
 
 - A cookie banner ("Accepter" / "Afvis valgfrie") shows on first visit,
   stored in `localStorage`. Cal.com's booking cookies are treated as
-  essential and always active; the Trustpilot widget only loads after a
-  visitor accepts optional cookies.
+  essential and always active; the embedded Trustpilot widget only loads
+  after a visitor accepts optional cookies.
 - `/privatlivspolitik` documents what's collected through the contact
   form and Cal.com bookings, cookie usage, retention periods, and GDPR
   rights, all pulled from `lib/business.ts`.
-- To show real Trustpilot reviews: create a
+- To link your Trustpilot profile: create a
   [Trustpilot Business](https://business.trustpilot.com) account, verify
-  the domain, and set `NEXT_PUBLIC_TRUSTPILOT_BUSINESS_ID`.
+  your domain, and set two env vars:
+  - `NEXT_PUBLIC_TRUSTPILOT_REVIEW_URL`, your public profile URL (e.g.
+    `https://dk.trustpilot.com/review/yourdomain.dk`). This alone gets
+    you a plain "Se vores anmeldelser på Trustpilot" link in the footer,
+    visible to everyone, no cookie consent needed for a link.
+  - `NEXT_PUBLIC_TRUSTPILOT_BUSINESS_ID`, found under Integrations ->
+    TrustBox, to additionally show the embedded reviews widget (which,
+    being a tracking script, only loads after cookie consent).
 
 ## Illustrations
 
@@ -85,17 +116,22 @@ homepage) are all in place.
 
 - `app/page.tsx` homepage (hero, services teaser, FAQ, CTA)
 - `app/services/page.tsx` services grid
-- `app/priser/page.tsx` pricing
+- `app/priser/page.tsx` pricing, with Stripe checkout buttons
+- `app/priser/betaling-gennemfoert/page.tsx` post-payment confirmation
 - `app/about/page.tsx` bio, credentials, headshot placeholder
 - `app/contact/page.tsx` inline Cal.com booking widget, map, fallback message form
 - `app/privatlivspolitik/page.tsx` GDPR privacy policy
 - `app/api/contact/route.ts` sends the contact form via Resend
+- `app/api/checkout/route.ts` creates Stripe Checkout sessions
 - `app/robots.ts`, `app/sitemap.ts`, `app/icon.tsx`, `app/not-found.tsx`
 - `lib/business.ts` central business details, edit this before launch
-- `lib/cal.ts`, `lib/trustpilot.ts` read the relevant env vars
+- `lib/pricing.ts` single source of truth for plan names/prices, used by
+  the pricing page and the checkout route
+- `lib/cal.ts`, `lib/stripe.ts`, `lib/trustpilot.ts` read the relevant env vars
 - `components/Navbar.tsx`, `components/Footer.tsx` shared layout
 - `components/BookingButton.tsx` opens the Cal.com popup from anywhere
 - `components/CalProvider.tsx`, `components/CalInlineBooking.tsx` Cal.com embed
+- `components/CheckoutButton.tsx` starts a Stripe Checkout session
 - `components/CookieConsentProvider.tsx`, `components/CookieConsentBanner.tsx`
 - `components/TrustpilotWidget.tsx` reviews, gated behind cookie consent
 - `components/ContactForm.tsx` posts to the API route above

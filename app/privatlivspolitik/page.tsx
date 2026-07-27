@@ -39,6 +39,10 @@ export default function PrivacyPage() {
               sendes videre via Resend, som i denne sammenhæng er databehandler.
             </li>
             <li>
+              Når du betaler online: dine betalingsoplysninger behandles direkte af Stripe, som er
+              databehandler for betalingen. Vi ser og opbevarer ikke selv dine kortoplysninger.
+            </li>
+            <li>
               Hvis du accepterer valgfrie cookies: anonymiserede statistikoplysninger fra Trustpilot.
             </li>
           </ul>

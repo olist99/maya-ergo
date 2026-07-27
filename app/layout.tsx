@@ -22,19 +22,19 @@ const publicSans = Public_Sans({
   display: "swap",
 });
 
-const siteUrl = "https://ergoterapi.dk";
+const siteUrl = "https://sikkerhavnergoterapi.dk";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Ergoterapi - Autoriseret ergoterapeut",
-    template: "%s - Ergoterapi",
+    default: "Sikker Havn Ergoterapi - Autisme, sanseforstyrrelser og belastningsreaktioner",
+    template: "%s - Sikker Havn Ergoterapi",
   },
   description:
-    "Styrk din hverdag med skræddersyet ergoterapi. Hjemmebesøg, ergonomi, genoptræning og rådgivning om hjælpemidler.",
+    "Ergoterapeutisk hjælp til børn, unge og voksne med neurodivergens, sanseforstyrrelser og belastningsreaktioner. Psykoedukation, mestringsforløb og samtaleterapi.",
   openGraph: {
-    title: "Ergoterapi - Autoriseret ergoterapeut",
-    description: "Styrk din hverdag med skræddersyet ergoterapi i Næstved og omegn.",
+    title: "Sikker Havn Ergoterapi",
+    description: "Autisme, sanseforstyrrelser, belastningsreaktioner, psykoedukation og samtaleterapi.",
     url: siteUrl,
     siteName: business.practiceName,
     locale: "da_DK",
@@ -42,20 +42,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Ergoterapi - Autoriseret ergoterapeut",
-    description: "Styrk din hverdag med skræddersyet ergoterapi.",
+    title: "Sikker Havn Ergoterapi",
+    description: "Autisme, sanseforstyrrelser, belastningsreaktioner, psykoedukation og samtaleterapi.",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1f6b4a",
+  themeColor: "#465438",
 };
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   name: business.practiceName,
-  description: "Autoriseret ergoterapeut med fokus på hjemmebesøg, ergonomi, genoptræning og hjælpemidler.",
+  description:
+    "Ergoterapeutisk praksis med fokus på neurodivergens, sanseforstyrrelser, belastningsreaktioner, psykoedukation og samtaleterapi.",
   url: siteUrl,
   telephone: business.phoneHref.replace("tel:", ""),
   email: business.email,

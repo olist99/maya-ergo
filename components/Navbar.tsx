@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -26,10 +27,17 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="font-display text-lg font-semibold text-[var(--color-ink)]"
+          className="flex items-center"
           onClick={() => setOpen(false)}
         >
-          <span className="text-[var(--color-sage-dark)]">Ergoterapi</span>
+          <Image
+            src="/brand/logo-wordmark.png"
+            alt="Sikker Havn Ergoterapi"
+            width={241}
+            height={49}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
