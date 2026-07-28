@@ -43,7 +43,7 @@ Lige nu er en del ting placeholder, så siden ikke går ned:
 
 - Farverne er taget direkte fra det rigtige logo (grøn-tonen er samplet fra selve PNG'en), alt sammen i `app/globals.css`.
 - Alle rundede hjørner på siden er den samme 0,4rem, med vilje, sat ét sted og genbrugt overalt.
-- Ikonerne er Phosphor.
+- Ikonerne er Phosphor, ikke det mere gængse Lucide.
 - Illustrationerne er fra ManyPixels, farvet om til brandets grønne. Skifter du en ud, er tricket at søge-og-erstatte `#68e1fd` (deres standardaccent) og `#ffd200` (deres sekundære) før filen lægges ind, ellers dukker den op i den forkerte farve.
 
 Det er stort set det. Selve koden burde være læsbar nok til resten.
