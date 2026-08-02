@@ -36,6 +36,15 @@ export const plans: Plan[] = [
     text: "Individuel session med fokus på at forstå og regulere sanseforstyrrelser.",
     points: ["Sansescreening", "Konkrete reguleringsstrategier", "Til børn, unge og voksne"],
   },
+  {
+    id: "sensorisktest",
+    title: "Sensorisk udredning",
+    duration: "120 min",
+    price: "1.200 kr.",
+    amount: 120000,
+    text: "En sensorisk test udføres for at kortlægge en persons sensoriske problemområder og hvad de reagerer på. Denne kan bruges til bedre at forstå hvorfor en person reagerer som de gør og hvad de har af behov, i en given situation. Dette er et godt redskab forud for sanse træning eller til brug i institutioner",
+    points: ["Sansescreening", "Institution", "Til børn, unge og voksne"],
+  },
 ];
 
 export const packagePlan = {
