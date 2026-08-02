@@ -48,11 +48,6 @@ export default function ContactPage() {
               <h2 className="px-4 pt-3 font-display text-lg font-semibold text-[var(--color-ink)] sm:px-2">
                 Book en tid
               </h2>
-              <div id="inline-widget-meet-with-maya-8"></div>
-<script>window.Koalendar=window.Koalendar||function(){(Koalendar.props=Koalendar.props||[]).push(arguments)};</script>
-<script async src="https://koalendar.com/assets/widget.js"></script>
-<script>Koalendar('inline', {"url":"https://koalendar.com/e/meet-with-maya-8","selector":"#inline-widget-meet-with-maya-8"});</script>
-
             </div>
 
             <aside className="card p-6">
