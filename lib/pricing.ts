@@ -7,6 +7,15 @@ export type Plan = {
   text: string;
   points: string[];
 };
+export type SanseTest = {
+  id: string;
+  title: string;
+  duration: string;
+  price: string;
+  amount: number;
+  text: string;
+  points: string[];
+};
 
 export const plans: Plan[] = [
   {
@@ -36,6 +45,8 @@ export const plans: Plan[] = [
     text: "Individuel session med fokus på at forstå og regulere sanseforstyrrelser.",
     points: ["Sansescreening", "Konkrete reguleringsstrategier", "Til børn, unge og voksne"],
   },
+];
+export const sanseplans: SanseTest[] = [
   {
     id: "sensorisktest",
     title: "Sensorisk udredning",

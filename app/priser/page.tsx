@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Check, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import BookingButton from "@/components/BookingButton";
 import CheckoutButton from "@/components/CheckoutButton";
-import { plans, packagePlan } from "@/lib/pricing";
+import { plans, sanseplans, packagePlan } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Priser - Sikker Havn Ergoterapi",
@@ -48,6 +48,23 @@ export default function PricingPage() {
               </article>
             ))}
           </div>
+          {sanseplans.map(({ id, title, duration, price, text, points }) => (
+              <article key={id} className="card flex flex-col p-7">
+                <p className="text-sm font-medium text-[var(--color-sage-dark)]">{duration}</p>
+                <h2 className="mt-1 font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h2>
+                <p className="mt-3 font-display text-3xl font-semibold text-[var(--color-ink)]">{price}</p>
+                <p className="mt-3 text-sm text-[var(--color-ink-soft)]">{text}</p>
+                <ul className="mt-5 space-y-2.5 border-t border-[var(--color-line)] pt-5">
+                  {points.map((point) => (
+                    <li key={point} className="flex items-start gap-2.5 text-sm text-[var(--color-ink)]">
+                      <Check weight="bold" className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                <CheckoutButton planId={id} className="btn btn-outline mt-5 w-full" />
+              </article>
+            ))}
 
           <div className="card mt-6 flex flex-col items-start gap-4 p-7 sm:flex-row sm:items-center sm:justify-between">
             <div>
