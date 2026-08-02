@@ -32,7 +32,7 @@ export default function PrivacyPage() {
           <ul className="mt-3 list-disc space-y-2 pl-5">
             <li>
               Når du booker en tid: navn, email og de øvrige oplysninger, du selv angiver i
-              bookingprocessen. Booking håndteres af Cal.com, som i denne sammenhæng er databehandler.
+              bookingprocessen. Booking håndteres af Koalendar, som i denne sammenhæng er databehandler.
             </li>
             <li>
               Når du skriver til os via kontaktformularen: navn, email og indholdet af din besked. Beskeden
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
           <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">Cookies</h2>
           <p className="mt-3">Denne hjemmeside anvender:</p>
           <ul className="mt-3 list-disc space-y-2 pl-5">
-            <li><strong>Cal.com</strong>, nødvendig for at bookingkalenderen kan fungere.</li>
+            <li><strong>Koalendar</strong>, nødvendig for at bookingkalenderen kan fungere.</li>
             <li><strong>Trustpilot</strong>, valgfri, viser anmeldelser og indlæses kun, hvis du accepterer det i cookiebeskeden.</li>
             <li><strong>Google Fonts</strong>, indlæser skrifttyper fra Google til visning af siden.</li>
           </ul>

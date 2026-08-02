@@ -19,7 +19,7 @@ Lige nu er en del ting placeholder, så siden ikke går ned:
 - `lib/business.ts` har det falske telefonnummer, CVR, adresse osv. Ret det dér, så opdaterer det sig alle steder (footer, privatlivspolitik, det Google-schema-agtige). Ikke noget med at lede efter det i fem forskellige filer, det er kun den ene.
 - Der er ikke noget rigtigt billede endnu, så About-siden har en grå boks med et personikon. Skift det ud i `app/about/page.tsx`, når der er et rigtigt portrætfoto.
 - Kopiér `.env.example` til `.env.local` og udfyld:
-  - Cal.com-linket, når der er en rigtig event sat op
+  - Koalendar-linket (`NEXT_PUBLIC_KOALENDAR_URL`), når der er en rigtig booking-side sat op
   - Resend-nøgle, så kontaktformularen faktisk sender en mail nogen steder hen (lige nu viser den bare en fejl, hvis man prøver uden, bedre end at lade som om det virkede)
   - Stripe-nøgle til "betal online"-knapperne
   - Trustpilot-tingene, betyder først noget, når der er rigtige anmeldelser at vise
@@ -29,7 +29,7 @@ Lige nu er en del ting placeholder, så siden ikke går ned:
 
 ## Integrationerne, kort fortalt
 
-**Booking** går gennem Cal.com, det er bare et embed/popup, ikke noget avanceret. Sæt `NEXT_PUBLIC_CAL_LINK`, så virker det.
+**Booking** går gennem Koalendar, det er bare et embed/popup, ikke noget avanceret. Sæt `NEXT_PUBLIC_KOALENDAR_URL`, så virker det.
 
 **Betaling** er Stripe Checkout, redirect-baseret, så der er ingen kortfelter, vi selv skal bygge eller sikre, det klarer Stripe. Priserne ligger ét sted, `lib/pricing.ts`, og ingen andre steder, så det, der vises på siden, og det, der rent faktisk trækkes, kan ikke komme til at afvige fra hinanden.
 
@@ -37,7 +37,7 @@ Lige nu er en del ting placeholder, så siden ikke går ned:
 
 **Trustpilot** er delt op i to ting med vilje: et almindeligt link til anmeldelserne (virker med det samme, ingen cookie-godkendelse nødvendig for et link) og selve widgetten (venter på cookie-samtykke, da det er et tracking-script). De to kan slås til hver for sig.
 
-**Cookies**: der er en banner, Cal's cookies tæller som nødvendige, siden booking jo er hele pointen med siden, Trustpilots widget venter på samtykke.
+**Cookies**: der er en banner, Koalendars cookies tæller som nødvendige, siden booking jo er hele pointen med siden, Trustpilots widget venter på samtykke.
 
 ## Designting værd at vide
 

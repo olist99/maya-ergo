@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Phone, EnvelopeSimple, MapPin, Clock } from "@phosphor-icons/react/dist/ssr";
 import ContactForm from "@/components/ContactForm";
-import CalInlineBooking from "@/components/CalInlineBooking";
+import KoalendarInlineBooking from "@/components/KoalendarInlineBooking";
 import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -48,6 +48,7 @@ export default function ContactPage() {
               <h2 className="px-4 pt-3 font-display text-lg font-semibold text-[var(--color-ink)] sm:px-2">
                 Book en tid
               </h2>
+              <KoalendarInlineBooking />
             </div>
 
             <aside className="card p-6">

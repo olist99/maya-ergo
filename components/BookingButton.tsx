@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { CAL_LINK, CAL_NAMESPACE } from "@/lib/cal";
+import { KOALENDAR_URL } from "@/lib/koalendar";
 
 type BookingButtonProps = {
   children: ReactNode;
@@ -13,10 +13,10 @@ export default function BookingButton({ children, className, onClick }: BookingB
   return (
     <button
       type="button"
-      onClick={onClick}
-      data-cal-link={CAL_LINK}
-      data-cal-namespace={CAL_NAMESPACE}
-      data-cal-config='{"layout":"month_view"}'
+      onClick={() => {
+        window.Koalendar?.("open", { url: KOALENDAR_URL });
+        onClick?.();
+      }}
       className={className}
     >
       {children}

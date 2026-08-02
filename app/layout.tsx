@@ -3,7 +3,7 @@ import { Fraunces, Karla } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CalProvider from "@/components/CalProvider";
+import KoalendarProvider from "@/components/KoalendarProvider";
 import { CookieConsentProvider } from "@/components/CookieConsentProvider";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import { business } from "@/lib/business";
@@ -91,7 +91,7 @@ export default function RootLayout({
           <Navbar />
           <main id="main-content">{children}</main>
           <Footer />
-          <CalProvider />
+          <KoalendarProvider />
           <CookieConsentBanner />
         </CookieConsentProvider>
       </body>

@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Udfyld venligst navn, email og besked korrekt." }, { status: 400 });
   }
 
-  const apiKey = re_NagwNomL_LFPse4R9hWbhkS8CBCo1w2uh;
+  const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.CONTACT_TO_EMAIL || business.email;
 
   if (!apiKey) {
