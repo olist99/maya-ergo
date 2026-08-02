@@ -48,6 +48,7 @@ export default function PricingPage() {
               </article>
             ))}
           </div>
+          <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-1>
           {sanseplans.map(({ id, title, duration, price, text, points }) => (
               <article key={id} className="card flex flex-col p-7">
                 <p className="text-sm font-medium text-[var(--color-sage-dark)]">{duration}</p>
@@ -65,7 +66,7 @@ export default function PricingPage() {
                 <CheckoutButton planId={id} className="btn btn-outline mt-5 w-full" />
               </article>
             ))}
-
+          </div>
           <div className="card mt-6 flex flex-col items-start gap-4 p-7 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">{packagePlan.title}</h2>
