@@ -48,9 +48,9 @@ export default function PricingPage() {
               </article>
             ))}
           </div>
-          <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-1" style={{marginTop: '20px'}}>
+          <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-1">
           {sanseplans.map(({ id, title, duration, price, text, points }) => (
-              <article key={id} className="card flex flex-col p-7">
+              <article key={id} className="card flex flex-col p-7" style={{marginTop: '20px'}}>
                 <p className="text-sm font-medium text-[var(--color-sage-dark)]">{duration}</p>
                 <h2 className="mt-1 font-display text-xl font-semibold text-[var(--color-ink)]">{title}</h2>
                 <p className="mt-3 font-display text-3xl font-semibold text-[var(--color-ink)]">{price}</p>
